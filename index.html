@@ -417,6 +417,110 @@ display:flex;
 justify-content:space-between;
 }
 
+/* COMING SOON */
+
+.coming-soon{
+padding-top:90px;
+padding-bottom:110px;
+}
+
+.coming-title{
+text-align:center;
+margin-bottom:45px;
+}
+
+.coming-title .tag{
+margin-bottom:12px;
+}
+
+.coming-title h2{
+font-size:clamp(38px,6vw,65px);
+text-shadow:0 0 25px rgba(0,170,255,.35);
+}
+
+.coming-title p{
+color:#7f8d9d;
+margin-top:15px;
+line-height:1.6;
+}
+
+.coming-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.coming-card{
+height:390px;
+position:relative;
+overflow:hidden;
+border-radius:22px;
+background:#080c11;
+border:1px solid rgba(0,170,255,.16);
+transition:.35s;
+}
+
+.coming-card:hover{
+transform:translateY(-9px);
+border-color:#00aaff;
+box-shadow:
+0 20px 60px rgba(0,0,0,.7),
+0 0 35px rgba(0,170,255,.2);
+}
+
+.coming-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.coming-card:hover img{
+transform:scale(1.08);
+}
+
+.coming-card:after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 20%,
+rgba(0,0,0,.96)
+);
+}
+
+.coming-info{
+position:absolute;
+left:20px;
+right:20px;
+bottom:20px;
+z-index:2;
+}
+
+.coming-badge{
+display:inline-block;
+padding:7px 11px;
+border-radius:50px;
+font-size:10px;
+font-weight:900;
+letter-spacing:2px;
+color:#001018;
+background:linear-gradient(135deg,#00aaff,#00e5ff);
+box-shadow:0 0 18px rgba(0,170,255,.35);
+}
+
+.coming-info h3{
+font-size:25px;
+margin-top:12px;
+}
+
+.coming-info p{
+color:#aab4c0;
+margin-top:6px;
+font-size:13px;
+}
+
 /* MODAL */
 
 .modal-bg{
@@ -511,13 +615,13 @@ outline:none;
 border-color:#00aaff;
 }
 
-/* WELCOME POPUP */
+/* WELCOME / NIGHT POPUP */
 
 .welcome-bg{
 position:fixed;
 inset:0;
 z-index:9999;
-display:flex;
+display:none;
 align-items:center;
 justify-content:center;
 padding:20px;
@@ -525,6 +629,10 @@ background:
 radial-gradient(circle at center,rgba(0,170,255,.18),transparent 45%),
 rgba(0,0,0,.88);
 backdrop-filter:blur(18px);
+}
+
+.welcome-bg.open{
+display:flex;
 }
 
 .welcome-box{
@@ -718,6 +826,10 @@ justify-content:center;
 grid-template-columns:repeat(2,1fr);
 }
 
+.coming-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
 .payment,
 .deals{
 grid-template-columns:1fr;
@@ -757,11 +869,16 @@ max-width:330px;
 }
 
 .games,
-.features{
+.features,
+.coming-grid{
 grid-template-columns:1fr;
 }
 
 .game{
+height:430px;
+}
+
+.coming-card{
 height:430px;
 }
 
@@ -791,8 +908,7 @@ font-size:32px;
 
 <body>
 
-<!-- WELCOME POPUP -->
-
+<!-- NIGHT-TIME POPUP -->
 <div class="welcome-bg" id="welcomePopup">
 
 <div class="welcome-box">
@@ -802,11 +918,15 @@ class="welcome-logo"
 src="1787436309105.png"
 alt="DARK">
 
-<div class="tag">DARK DIGITAL GAMING</div>
+<div class="tag" id="welcomeTag">
+DARK DIGITAL GAMING
+</div>
 
-<h2>WELCOME TO<br>DARK STORE</h2>
+<h2 id="welcomeTitle">
+WELCOME TO<br>DARK STORE
+</h2>
 
-<p>
+<p id="welcomeMessage">
 Level up your gaming experience.
 Get Robux, Diamonds, CP and UC
 quickly and easily.
@@ -816,7 +936,7 @@ quickly and easily.
 class="btn primary"
 style="width:100%"
 onclick="closeWelcome()">
-NEXT →
+ENTER DARK STORE →
 </button>
 
 </div>
@@ -843,6 +963,7 @@ alt="DARK Logo">
 <a href="#games">GAMING</a>
 <a href="#deals">DEALS</a>
 <a href="#payment">PAYMENT</a>
+<a href="#coming">COMING SOON</a>
 <a href="#contact">CONTACT</a>
 
 </nav>
@@ -906,7 +1027,7 @@ CONTACT DARK
 
 <img
 class="hero-logo"
-src="1787436309105.png"
+src="1787436314905.png"
 alt="DARK">
 
 </div>
@@ -1354,6 +1475,148 @@ Every 5 purchases = FREE
 </section>
 
 
+<!-- COMING SOON -->
+
+<section id="coming" class="coming-soon">
+
+<div class="wrap">
+
+<div class="coming-title">
+
+<div class="tag">
+DARK COMING SOON
+</div>
+
+<h2>
+COMING SOON
+</h2>
+
+<p>
+More games and digital entertainment are coming to DARK.
+Stay tuned for the next drop.
+</p>
+
+</div>
+
+
+<div class="coming-grid">
+
+
+<!-- APEX LEGENDS -->
+
+<div class="coming-card">
+
+<img
+src="images/IMG-20260822-WA0013.jpg"
+alt="Apex Legends">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Apex Legends
+</h3>
+
+<p>
+New content coming to DARK.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ARENA BREAKOUT -->
+
+<div class="coming-card">
+
+<img
+src="images/MV5BYTQ2YTNlNWQtOWU2OC00MjM3LThlMjAtMjMzMmUwMTY5NmQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+alt="Arena Breakout">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Arena Breakout
+</h3>
+
+<p>
+New content coming to DARK.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NETFLIX -->
+
+<div class="coming-card">
+
+<img
+src="images/IMG-20260822-WA0010.jpg"
+alt="Netflix">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Netflix
+</h3>
+
+<p>
+Digital entertainment coming soon.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PRIME VIDEO -->
+
+<div class="coming-card">
+
+<img
+src="images/IMG-20260822-WA0008.jpg"
+alt="Prime Video">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Prime Video
+</h3>
+
+<p>
+Digital entertainment coming soon.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
 <!-- CONTACT -->
 
 <section id="contact">
@@ -1635,16 +1898,115 @@ let currentPackage="";
 
 
 /* =========================================
-   WELCOME POPUP
+   TIME-BASED WELCOME POPUP
+   BEFORE 8:00 AM OR AFTER 9:00 PM
+   ========================================= */
+
+function checkStoreHours(){
+
+const now = new Date();
+
+const hour = now.getHours();
+const minute = now.getMinutes();
+
+const currentMinutes =
+(hour * 60) + minute;
+
+const openingTime = 8 * 60;      // 8:00 AM
+const closingTime = 21 * 60;     // 9:00 PM
+
+const popup =
+document.getElementById("welcomePopup");
+
+const title =
+document.getElementById("welcomeTitle");
+
+const message =
+document.getElementById("welcomeMessage");
+
+const tag =
+document.getElementById("welcomeTag");
+
+
+/*
+   BEFORE 8:00 AM
+*/
+
+if(currentMinutes < openingTime){
+
+tag.textContent =
+"DARK STORE • CLOSED";
+
+title.innerHTML =
+"WE'RE CLOSED<br>RIGHT NOW";
+
+message.textContent =
+"Thanks for visiting DARK. Our store opens at 8:00 AM. You can still browse the website, and we'll be ready to help you when we're open.";
+
+popup.classList.add("open");
+
+return;
+
+}
+
+
+/*
+   AFTER 9:00 PM
+*/
+
+if(currentMinutes >= closingTime){
+
+tag.textContent =
+"DARK STORE • CLOSED";
+
+title.innerHTML =
+"WE'RE CLOSED<br>RIGHT NOW";
+
+message.textContent =
+"Thanks for visiting DARK. Our store is closed for tonight. You can still browse the website and place your request. We'll respond when we're back.";
+
+popup.classList.add("open");
+
+return;
+
+}
+
+
+/*
+   BETWEEN 8:00 AM AND 9:00 PM
+   NO AUTOMATIC POPUP
+*/
+
+popup.classList.remove("open");
+
+}
+
+
+/* =========================================
+   CLOSE WELCOME POPUP
    ========================================= */
 
 function closeWelcome(){
 
 document.getElementById(
 "welcomePopup"
-).style.display="none";
+).classList.remove("open");
 
 }
+
+
+/* =========================================
+   CHECK TIME WHEN PAGE LOADS
+   ========================================= */
+
+window.addEventListener(
+"load",
+function(){
+
+checkStoreHours();
+
+}
+);
 
 
 /* =========================================
@@ -2004,7 +2366,7 @@ document.getElementById(
 
 
 /* =========================================
-   CLOSE MODAL BY CLICKING OUTSIDE
+   CLOSE PRODUCT BY CLICKING OUTSIDE
    ========================================= */
 
 document.getElementById(
