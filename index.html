@@ -484,70 +484,6 @@ outline:none;
 border-color:#00aaff;
 }
 
-/* NEW PAYMENT RECEIPT */
-
-.receipt-section{
-margin-top:20px;
-padding:18px;
-border-radius:15px;
-background:rgba(0,170,255,.04);
-border:1px solid rgba(0,170,255,.18);
-}
-
-.receipt-title{
-color:#00b7ff;
-font-size:12px;
-font-weight:900;
-letter-spacing:2px;
-margin-bottom:10px;
-}
-
-.receipt-text{
-color:#8794a4;
-font-size:13px;
-line-height:1.6;
-margin-bottom:10px;
-}
-
-.receipt-input{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,.1);
-background:#030609;
-color:#fff;
-cursor:pointer;
-}
-
-.scan-status{
-margin-top:10px;
-font-size:12px;
-color:#8290a0;
-line-height:1.5;
-}
-
-.transaction-box{
-display:none;
-margin-top:10px;
-}
-
-.transaction-box.show{
-display:block;
-}
-
-.transaction-label{
-font-size:11px;
-color:#00b7ff;
-font-weight:900;
-letter-spacing:1px;
-}
-
-.warning{
-font-size:11px;
-color:#667384;
-line-height:1.5;
-}
-
 /* MOBILE */
 @media(max-width:950px){
 .hero-inner{
@@ -634,25 +570,20 @@ gap:10px;
 <body>
 
 <header>
-
 <div class="nav">
 
 <a href="#home">
-
 <img class="logo-img"
 src="1787436309105.png"
 alt="DARK Logo">
-
 </a>
 
 <nav id="nav">
-
 <a href="#home">HOME</a>
 <a href="#games">GAMING</a>
 <a href="#deals">DEALS</a>
 <a href="#payment">PAYMENT</a>
 <a href="#contact">CONTACT</a>
-
 </nav>
 
 <button class="menu"
@@ -661,21 +592,14 @@ onclick="document.getElementById('nav').classList.toggle('open')">
 </button>
 
 </div>
-
 </header>
 
-
 <!-- HERO -->
-
 <section class="hero" id="home">
-
 <div class="hero-inner">
 
 <div>
-
-<div class="tag">
-DARK DIGITAL GAMING
-</div>
+<div class="tag">DARK DIGITAL GAMING</div>
 
 <h1>
 LEVEL UP<br>
@@ -689,7 +613,6 @@ through DARK.
 </p>
 
 <div class="actions">
-
 <a href="#games" class="btn primary">
 EXPLORE GAMING →
 </a>
@@ -697,370 +620,177 @@ EXPLORE GAMING →
 <a href="#contact" class="btn secondary">
 CONTACT DARK
 </a>
-
 </div>
-
 </div>
 
 <div>
-
 <img
 class="hero-logo"
 src="1787436309105.png"
 alt="DARK">
-
 </div>
 
 </div>
-
 </section>
 
-
 <!-- GAMES -->
-
 <section id="games">
-
 <div class="wrap">
 
-<div class="tag">
-DARK GAMING
-</div>
-
-<h2>
-Choose Your Game
-</h2>
+<div class="tag">DARK GAMING</div>
+<h2>Choose Your Game</h2>
 
 <p class="desc">
 Tap a game to see its exact packages and start your order.
 </p>
 
-
 <div class="games">
-
-
-<!-- ROBLOX -->
 
 <div class="game"
 onclick="openProduct('Roblox','Robux','images/f93f089a3d8211ede4c832c3a24efe1e.jpg',
-[
-['40 Robux','300'],
-['80 Robux','600'],
-['500 Robux','1,300'],
-['1,000 Robux','2,300'],
-['2,000 Robux','4,600'],
-['4,500 Robux','11,300'],
-['10,000 Robux','21,500'],
-['22,500 Robux','43,000']
-])">
+[['40 Robux','300'],['80 Robux','600'],['500 Robux','1,300'],['1,000 Robux','2,300'],['2,000 Robux','4,600'],['4,500 Robux','11,300'],['10,000 Robux','21,500'],['22,500 Robux','43,000']])">
 
-<img
-src="images/f93f089a3d8211ede4c832c3a24efe1e.jpg"
-alt="Roblox">
-
+<img src="images/f93f089a3d8211ede4c832c3a24efe1e.jpg">
 <div class="game-info">
-
-<small>
-ROBLOX
-</small>
-
-<h3>
-Robux
-</h3>
-
-<p>
-Tap to view packages
-</p>
-
+<small>ROBLOX</small>
+<h3>Robux</h3>
+<p>Tap to view packages</p>
 </div>
-
 </div>
-
-
-<!-- FREE FIRE -->
 
 <div class="game"
 onclick="openProduct('Free Fire','Diamonds','images/30de15ba0e69c62e5e5987ceaae08401.jpg',
-[
-['100 Diamonds','300'],
-['210 Diamonds','600'],
-['530 Diamonds','1,300'],
-['1,080 Diamonds','2,500'],
-['2,200 Diamonds','5,200']
-])">
+[['100 Diamonds','300'],['210 Diamonds','600'],['530 Diamonds','1,300'],['1,080 Diamonds','2,500'],['2,200 Diamonds','5,200']])">
 
-<img
-src="images/30de15ba0e69c62e5e5987ceaae08401.jpg"
-alt="Free Fire">
-
+<img src="images/30de15ba0e69c62e5e5987ceaae08401.jpg">
 <div class="game-info">
-
-<small>
-FREE FIRE
-</small>
-
-<h3>
-Diamonds
-</h3>
-
-<p>
-Tap to view packages
-</p>
-
+<small>FREE FIRE</small>
+<h3>Diamonds</h3>
+<p>Tap to view packages</p>
 </div>
-
 </div>
-
-
-<!-- CALL OF DUTY -->
 
 <div class="game"
 onclick="openProduct('Call of Duty Mobile','CP','images/f9f56c26780ac312b21e2d3a7da703f5.jpg',
-[
-['80 CP','400'],
-['420 CP','1,300'],
-['880 CP','2,300'],
-['2,400 CP','5,500'],
-['5,000 CP','11,000'],
-['10,800 CP','21,500']
-])">
+[['80 CP','400'],['420 CP','1,300'],['880 CP','2,300'],['2,400 CP','5,500'],['5,000 CP','11,000'],['10,800 CP','21,500']])">
 
-<img
-src="images/f9f56c26780ac312b21e2d3a7da703f5.jpg"
-alt="Call of Duty Mobile">
-
+<img src="images/f9f56c26780ac312b21e2d3a7da703f5.jpg">
 <div class="game-info">
-
-<small>
-CALL OF DUTY
-</small>
-
-<h3>
-CP
-</h3>
-
-<p>
-Tap to view packages
-</p>
-
+<small>CALL OF DUTY</small>
+<h3>CP</h3>
+<p>Tap to view packages</p>
 </div>
-
 </div>
-
-
-<!-- PUBG -->
 
 <div class="game"
 onclick="openProduct('PUBG Mobile','UC','images/f31054399c0c2604548ba7dfdced2a62.jpg',
-[
-['60 UC','300'],
-['325 UC','1,300'],
-['660 UC','2,300'],
-['1,800 UC','5,500'],
-['3,850 UC','11,400'],
-['8,100 UC','21,500']
-])">
+[['60 UC','300'],['325 UC','1,300'],['660 UC','2,300'],['1,800 UC','5,500'],['3,850 UC','11,400'],['8,100 UC','21,500']])">
 
-<img
-src="images/f31054399c0c2604548ba7dfdced2a62.jpg"
-alt="PUBG Mobile">
-
+<img src="images/f31054399c0c2604548ba7dfdced2a62.jpg">
 <div class="game-info">
-
-<small>
-PUBG MOBILE
-</small>
-
-<h3>
-UC
-</h3>
-
-<p>
-Tap to view packages
-</p>
-
+<small>PUBG MOBILE</small>
+<h3>UC</h3>
+<p>Tap to view packages</p>
+</div>
 </div>
 
 </div>
-
 </div>
-
-</div>
-
 </section>
 
-
 <!-- DEALS -->
-
 <section id="deals">
-
 <div class="wrap">
 
-<div class="tag">
-DARK EXCLUSIVE
-</div>
-
-<h2>
-Deals & Drops
-</h2>
+<div class="tag">DARK EXCLUSIVE</div>
+<h2>Deals & Drops</h2>
 
 <div class="deals">
 
 <div class="deal">
-
-<h3>
-Power Up Your Game.
-</h3>
-
+<h3>Power Up Your Game.</h3>
 <p>
 Choose from DARK's gaming top-ups and get your order
 started in a few taps.
 </p>
-
-<a href="#games" class="btn primary">
-SHOP NOW
-</a>
-
+<a href="#games" class="btn primary">SHOP NOW</a>
 </div>
 
 <div class="deal">
-
-<h3>
-More Coming.
-</h3>
-
+<h3>More Coming.</h3>
 <p>
 Gift cards and additional digital products can be added
 as DARK grows.
 </p>
-
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
 <!-- FEATURES -->
-
 <section>
-
 <div class="wrap">
 
-<div class="tag">
-WHY DARK
-</div>
-
-<h2>
-Built For Gamers.
-</h2>
+<div class="tag">WHY DARK</div>
+<h2>Built For Gamers.</h2>
 
 <div class="features">
 
 <div class="feature">
-
 <span>⚡</span>
-
-<h3>
-Fast Ordering
-</h3>
-
+<h3>Fast Ordering</h3>
 <p>
 Choose your game and package and send your order request.
 </p>
-
 </div>
 
 <div class="feature">
-
 <span>🛡️</span>
-
-<h3>
-Clear Payment
-</h3>
-
+<h3>Clear Payment</h3>
 <p>
 Payment information is displayed clearly before you order.
 </p>
-
 </div>
 
 <div class="feature">
-
 <span>🎮</span>
-
-<h3>
-Gaming Focused
-</h3>
-
+<h3>Gaming Focused</h3>
 <p>
 DARK is built around gaming top-ups and digital products.
 </p>
-
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
 <!-- PAYMENT -->
-
 <section id="payment">
-
 <div class="wrap">
 
-<div class="tag">
-PAYMENT
-</div>
-
-<h2>
-Complete Your Order
-</h2>
+<div class="tag">PAYMENT</div>
+<h2>Complete Your Order</h2>
 
 <div class="payment">
 
 <div class="payment-card">
-
-<h3>
-MMG
-</h3>
+<h3>MMG</h3>
 
 <div class="line">
-
-<span>
-Number
-</span>
-
-<strong>
-762-6433
-</strong>
-
+<span>Number</span>
+<strong>762-6433</strong>
 </div>
 
 <div class="line">
-
-<span>
-Merchant
-</span>
-
-<strong>
-CASSIA HENRY
-</strong>
-
+<span>Merchant</span>
+<strong>CASSIA HENRY</strong>
 </div>
 
 </div>
-
 
 <div class="payment-card">
-
-<h3>
-How It Works
-</h3>
+<h3>How It Works</h3>
 
 <div class="line">
 <span>01</span>
@@ -1079,46 +809,30 @@ How It Works
 
 <div class="line">
 <span>04</span>
-<strong>Upload MMG receipt</strong>
-</div>
-
-<div class="line">
-<span>05</span>
 <strong>Send order</strong>
 </div>
 
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
 <!-- CONTACT -->
-
 <section id="contact">
-
 <div class="wrap">
 
 <div class="contact">
 
-<div class="tag">
-CONTACT DARK
-</div>
+<div class="tag">CONTACT DARK</div>
 
-<h2>
-Ready To Level Up?
-</h2>
+<h2>Ready To Level Up?</h2>
 
 <p>
 Message DARK to place your gaming order.
 </p>
 
-<div
-class="actions"
-style="justify-content:center">
+<div class="actions" style="justify-content:center">
 
 <a
 class="btn primary"
@@ -1137,735 +851,153 @@ SECOND CONTACT
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
-
 <div class="footer">
-
-<strong>
-DARK
-</strong>
-
-<span>
-Digital Gaming Store • Guyana
-</span>
-
-<span>
-© 2026 DARK
-</span>
-
+<strong>DARK</strong>
+<span>Digital Gaming Store • Guyana</span>
+<span>© 2026 DARK</span>
 </div>
-
 </footer>
 
-
 <!-- PRODUCT WINDOW -->
-
-<div
-class="modal-bg"
-id="modal">
+<div class="modal-bg" id="modal">
 
 <div class="modal">
 
 <div class="modal-grid">
 
-
-<!-- IMAGE -->
-
 <div class="modal-image">
-
 <img id="productImage">
-
 </div>
-
-
-<!-- CONTENT -->
 
 <div class="modal-content">
 
-<button
-class="close"
-onclick="closeProduct()">
-×
-</button>
+<button class="close" onclick="closeProduct()">×</button>
 
-<div class="tag">
-DARK GAMING
-</div>
+<div class="tag">DARK GAMING</div>
 
 <h2 id="productName"></h2>
 
 <p id="productType"></p>
 
-
-<!-- PACKAGES -->
-
 <div id="packages"></div>
-
-
-<!-- GAMER ID -->
 
 <input
 class="field"
 id="player"
-placeholder="Enter Gamer ID / Username"
-autocomplete="off">
-
-
-<!-- MMG RECEIPT -->
-
-<div class="receipt-section">
-
-<div class="receipt-title">
-MMG PAYMENT RECEIPT
-</div>
-
-<p class="receipt-text">
-Upload your MMG payment screenshot.
-The website will scan the receipt and try to find
-the transaction ID automatically.
-</p>
-
-<input
-class="receipt-input"
-id="mmgReceipt"
-type="file"
-accept="image/*"
-onchange="scanMMGReceipt(event)">
-
-
-<div
-class="scan-status"
-id="scanStatus">
-
-Waiting for MMG receipt...
-
-</div>
-
-
-<!-- TRANSACTION ID -->
-
-<div
-class="transaction-box"
-id="transactionBox">
-
-<div class="transaction-label">
-TRANSACTION ID
-</div>
-
-<input
-class="field"
-id="transactionId"
-placeholder="Transaction ID"
-autocomplete="off">
-
-<p class="warning">
-Check the transaction ID before sending.
-You can edit it if the scanner reads it incorrectly.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- SEND ORDER -->
+placeholder="Enter Player ID / Username">
 
 <button
 class="btn primary"
-style="width:100%;margin-top:18px"
+style="width:100%"
 onclick="sendOrder()">
-
 SEND ORDER →
-
 </button>
 
 </div>
 
 </div>
-
 </div>
-
 </div>
-
-
-<!-- OCR LIBRARY -->
-
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-
 
 <script>
 
 let currentGame="";
 let currentPackage="";
-let currentTransaction="";
 
-
-/* =========================
-OPEN PRODUCT
-========================= */
-
-function openProduct(
-name,
-type,
-image,
-packages
-){
+function openProduct(name,type,image,packages){
 
 currentGame=name;
 currentPackage="";
-currentTransaction="";
 
-
-document.getElementById(
-"productName"
-).textContent=name;
-
-
-document.getElementById(
-"productType"
-).textContent=
+document.getElementById("productName").textContent=name;
+document.getElementById("productType").textContent=
 "Choose your "+type+" package.";
 
+document.getElementById("productImage").src=image;
 
-document.getElementById(
-"productImage"
-).src=image;
-
-
-/* RESET GAMER ID */
-
-document.getElementById(
-"player"
-).value="";
-
-
-/* RESET RECEIPT */
-
-document.getElementById(
-"mmgReceipt"
-).value="";
-
-
-document.getElementById(
-"transactionId"
-).value="";
-
-
-document.getElementById(
-"transactionBox"
-).classList.remove(
-"show"
-);
-
-
-document.getElementById(
-"scanStatus"
-).textContent=
-"Waiting for MMG receipt...";
-
-
-/* PACKAGES */
-
-let box=
-document.getElementById(
-"packages"
-);
-
+let box=document.getElementById("packages");
 box.innerHTML="";
 
+packages.forEach(function(p){
 
-packages.forEach(
-function(p){
+let button=document.createElement("button");
 
-let button=
-document.createElement(
-"button"
-);
-
-button.className=
-"package";
-
+button.className="package";
 
 button.innerHTML=
-"<span>"+
-p[0]+
-"</span><strong>GYD $"+
-p[1]+
-"</strong>";
+"<span>"+p[0]+"</span><strong>GYD $"+p[1]+"</strong>";
 
+button.onclick=function(){
 
-button.onclick=
-function(){
+document.querySelectorAll(".package")
+.forEach(x=>x.classList.remove("selected"));
 
-document
-.querySelectorAll(
-".package"
-)
-.forEach(
-function(x){
+button.classList.add("selected");
 
-x.classList.remove(
-"selected"
-);
-
-});
-
-
-button.classList.add(
-"selected"
-);
-
-
-currentPackage=
-p[0]+
-" — GYD $"+
-p[1];
+currentPackage=p[0]+" — GYD $"+p[1];
 
 };
 
-
-box.appendChild(
-button
-);
+box.appendChild(button);
 
 });
 
+document.getElementById("modal").classList.add("open");
 
-document.getElementById(
-"modal"
-).classList.add(
-"open"
-);
-
-document.body.style.overflow=
-"hidden";
-
+document.body.style.overflow="hidden";
 }
-
-
-/* =========================
-CLOSE PRODUCT
-========================= */
 
 function closeProduct(){
 
-document.getElementById(
-"modal"
-).classList.remove(
-"open"
-);
+document.getElementById("modal").classList.remove("open");
 
 document.body.style.overflow="";
-
 }
-
-
-/* =========================
-SCAN MMG RECEIPT
-========================= */
-
-async function scanMMGReceipt(event){
-
-let file=
-event.target.files[0];
-
-
-if(!file){
-
-return;
-
-}
-
-
-let status=
-document.getElementById(
-"scanStatus"
-);
-
-
-let transactionBox=
-document.getElementById(
-"transactionBox"
-);
-
-
-let transactionInput=
-document.getElementById(
-"transactionId"
-);
-
-
-status.textContent=
-"Scanning receipt... Please wait.";
-
-
-transactionBox.classList.remove(
-"show"
-);
-
-
-try{
-
-let result=
-await Tesseract.recognize(
-file,
-"eng",
-{
-
-logger:function(info){
-
-if(
-info.status===
-"recognizing text"
-){
-
-let percent=
-Math.round(
-info.progress*100
-);
-
-status.textContent=
-"Scanning receipt... "+
-percent+
-"%";
-
-}
-
-}
-
-}
-);
-
-
-let text=
-result.data.text;
-
-
-console.log(
-"Receipt text:",
-text
-);
-
-
-/* FIND TRANSACTION */
-
-let id=
-findTransactionId(
-text
-);
-
-
-if(id){
-
-currentTransaction=id;
-
-transactionInput.value=id;
-
-transactionBox.classList.add(
-"show"
-);
-
-status.textContent=
-"✓ Transaction ID found. Please check it.";
-
-}else{
-
-transactionBox.classList.add(
-"show"
-);
-
-status.textContent=
-"Transaction ID not found automatically. Please enter it manually.";
-
-}
-
-}catch(error){
-
-console.error(error);
-
-transactionBox.classList.add(
-"show"
-);
-
-status.textContent=
-"Could not scan receipt. Please enter the transaction ID manually.";
-
-}
-
-}
-
-
-/* =========================
-FIND TRANSACTION ID
-========================= */
-
-function findTransactionId(text){
-
-let clean=
-text
-.replace(
-/\n+/g,
-"\n"
-)
-.replace(
-/[|]/g,
-"I"
-);
-
-
-/*
-Common receipt formats
-*/
-
-let patterns=[
-
-/transaction\s*(id|no|number)?\s*[:#-]?\s*([A-Z0-9-]{5,})/i,
-
-/transaction\s*[:#-]?\s*([A-Z0-9-]{5,})/i,
-
-/trans\s*(id|no|number)?\s*[:#-]?\s*([A-Z0-9-]{5,})/i,
-
-/reference\s*(id|no|number)?\s*[:#-]?\s*([A-Z0-9-]{5,})/i,
-
-/reference\s*[:#-]?\s*([A-Z0-9-]{5,})/i,
-
-/trx\s*(id|no|number)?\s*[:#-]?\s*([A-Z0-9-]{5,})/i
-
-];
-
-
-for(
-let pattern of patterns
-){
-
-let match=
-clean.match(pattern);
-
-
-if(match){
-
-let id=
-match[2]||
-match[1];
-
-
-if(id){
-
-return id
-.trim()
-.replace(
-/[^A-Z0-9-]/gi,
-""
-);
-
-}
-
-}
-
-}
-
-
-/*
-Check lines below labels
-*/
-
-let lines=
-clean
-.split("\n")
-.map(
-x=>x.trim()
-)
-.filter(
-Boolean
-);
-
-
-for(
-let i=0;
-i<lines.length;
-i++
-){
-
-let line=
-lines[i].toLowerCase();
-
-
-if(
-line.includes("transaction")||
-line.includes("reference")||
-line.includes("trx")
-){
-
-if(
-lines[i+1]
-){
-
-let possible=
-lines[i+1]
-.replace(
-/[^A-Z0-9-]/gi,
-""
-);
-
-
-if(
-possible.length>=5
-){
-
-return possible;
-
-}
-
-}
-
-}
-
-}
-
-
-return "";
-
-}
-
-
-/* =========================
-SEND ORDER
-========================= */
 
 function sendOrder(){
 
-let player=
-document.getElementById(
-"player"
-).value.trim();
-
-
-let transaction=
-document.getElementById(
-"transactionId"
-).value.trim();
-
-
-/* CHECK PACKAGE */
+let player=document.getElementById("player").value.trim();
 
 if(!currentPackage){
 
-alert(
-"Please choose a package."
-);
+alert("Please choose a package.");
 
 return;
-
 }
-
-
-/* CHECK GAMER ID */
 
 if(!player){
 
-alert(
-"Please enter your Gamer ID or Username."
-);
+alert("Please enter your Player ID or Username.");
 
 return;
-
 }
-
-
-/* CHECK TRANSACTION */
-
-if(!transaction){
-
-alert(
-"Please upload your MMG receipt and enter the Transaction ID."
-);
-
-return;
-
-}
-
-
-/* WHATSAPP MESSAGE */
 
 let message=
-"Hi DARK! I want to place an order.\n\n"+
-"🎮 Game: "+
-currentGame+
-"\n"+
-"📦 Package: "+
-currentPackage+
-"\n"+
-"👤 Gamer ID / Username: "+
-player+
-"\n"+
-"💳 Payment: MMG"+
-"\n"+
-"🧾 Transaction ID: "+
-transaction;
-
-
-/* SEND TO YOUR WHATSAPP */
-
-let url=
-"https://wa.me/13436555995?text="+
-encodeURIComponent(
-message
-);
-
+"Hi DARK! I want to place an order.%0A%0A"+
+"Game: "+encodeURIComponent(currentGame)+
+"%0APackage: "+encodeURIComponent(currentPackage)+
+"%0APlayer ID/Username: "+encodeURIComponent(player);
 
 window.open(
-url,
+"https://wa.me/13436555995?text="+message,
 "_blank"
 );
 
 }
 
+document.getElementById("modal").onclick=function(e){
 
-/* =========================
-CLICK OUTSIDE POPUP
-========================= */
-
-document.getElementById(
-"modal"
-).onclick=
-function(e){
-
-if(
-e.target===this
-){
+if(e.target===this){
 
 closeProduct();
 
 }
 
 };
-
-
-/* =========================
-ESCAPE KEY
-========================= */
-
-document.addEventListener(
-"keydown",
-function(e){
-
-if(
-e.key==="Escape"
-){
-
-closeProduct();
-
-}
-
-});
 
 </script>
 
