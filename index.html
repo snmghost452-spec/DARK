@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +32,8 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 background:#050000;
 color:#fff;
-overflow-x:auto;
+overflow-x:hidden;
 }
-
-/* =========================================================
-   RED INFERNO BACKGROUND
-========================================================= */
 
 body:before{
 content:"";
@@ -92,11 +89,11 @@ font:inherit;
 
 
 /* =========================================================
-   PAGE
+   MAIN PAGE
 ========================================================= */
 
 .page{
-min-width:1100px;
+width:100%;
 }
 
 
@@ -111,7 +108,7 @@ left:0;
 right:0;
 z-index:1000;
 
-background:rgba(5,0,0,.78);
+background:rgba(5,0,0,.80);
 
 backdrop-filter:blur(18px);
 
@@ -120,13 +117,15 @@ border-bottom:
 }
 
 .nav{
-width:1100px;
+width:min(1100px,94%);
 height:74px;
 margin:auto;
 
 display:flex;
 align-items:center;
 justify-content:space-between;
+
+gap:25px;
 }
 
 .logo-img{
@@ -142,15 +141,24 @@ drop-shadow(0 0 25px rgba(255,0,0,.55));
 
 nav{
 display:flex;
-gap:25px;
+gap:20px;
+
+align-items:center;
+justify-content:flex-end;
+
+flex-wrap:wrap;
 }
 
 nav a{
 font-size:11px;
 font-weight:900;
+
 letter-spacing:1px;
+
 color:#c9bebe;
+
 white-space:nowrap;
+
 transition:.25s;
 }
 
@@ -168,20 +176,26 @@ text-shadow:
 
 .hero{
 min-height:100vh;
-padding-top:74px;
+
+padding:
+100px 20px
+50px;
 
 display:flex;
 align-items:center;
 }
 
 .hero-inner{
-width:1100px;
+width:min(1100px,100%);
+
 margin:auto;
 
 display:grid;
-grid-template-columns:1fr 1fr;
 
-gap:40px;
+grid-template-columns:
+1fr 1fr;
+
+gap:35px;
 
 align-items:center;
 }
@@ -190,6 +204,7 @@ align-items:center;
 color:#ff2020;
 
 font-size:10px;
+
 font-weight:900;
 
 letter-spacing:3px;
@@ -201,7 +216,8 @@ text-shadow:
 }
 
 .hero h1{
-font-size:92px;
+font-size:clamp(55px,7vw,92px);
+
 line-height:.86;
 
 letter-spacing:-5px;
@@ -229,12 +245,15 @@ font-size:15px;
 
 .actions{
 display:flex;
+
 gap:12px;
+
 flex-wrap:wrap;
 }
 
 .btn{
 border:0;
+
 border-radius:10px;
 
 padding:14px 21px;
@@ -268,7 +287,8 @@ box-shadow:
 }
 
 .secondary{
-background:rgba(255,255,255,.045);
+background:
+rgba(255,255,255,.045);
 
 border:
 1px solid rgba(255,255,255,.15);
@@ -280,13 +300,8 @@ color:#fff;
 border-color:#ff0000;
 }
 
-
-/* =========================================================
-   HERO LOGO
-========================================================= */
-
 .hero-logo{
-width:420px;
+width:min(420px,90%);
 
 display:block;
 
@@ -317,16 +332,17 @@ transform:translateY(-14px);
 ========================================================= */
 
 section{
-padding:90px 0;
+padding:80px 20px;
 }
 
 .wrap{
-width:1100px;
+width:min(1100px,100%);
 margin:auto;
 }
 
 h2{
-font-size:55px;
+font-size:clamp(38px,5vw,55px);
+
 margin-bottom:10px;
 }
 
@@ -572,8 +588,9 @@ color:#938383;
 ========================================================= */
 
 .coming-soon{
-padding-top:90px;
-padding-bottom:110px;
+padding-top:80px;
+
+padding-bottom:100px;
 }
 
 .coming-title{
@@ -583,7 +600,7 @@ margin-bottom:45px;
 }
 
 .coming-title h2{
-font-size:62px;
+font-size:clamp(45px,6vw,62px);
 
 text-shadow:
 0 0 25px rgba(255,0,0,.35);
@@ -604,8 +621,6 @@ grid-template-columns:
 repeat(4,1fr);
 
 gap:16px;
-
-min-width:1100px;
 }
 
 
@@ -647,27 +662,39 @@ animation-delay:1.05s;
 @keyframes comingShake{
 
 0%,100%{
-transform:translateX(0) rotate(0deg);
+transform:
+translateX(0)
+rotate(0deg);
 }
 
 10%{
-transform:translateX(-3px) rotate(-.6deg);
+transform:
+translateX(-3px)
+rotate(-.6deg);
 }
 
 20%{
-transform:translateX(3px) rotate(.6deg);
+transform:
+translateX(3px)
+rotate(.6deg);
 }
 
 30%{
-transform:translateX(-3px) rotate(-.5deg);
+transform:
+translateX(-3px)
+rotate(-.5deg);
 }
 
 40%{
-transform:translateX(3px) rotate(.5deg);
+transform:
+translateX(3px)
+rotate(.5deg);
 }
 
 50%{
-transform:translateX(0) rotate(0deg);
+transform:
+translateX(0)
+rotate(0deg);
 }
 
 }
@@ -691,7 +718,8 @@ box-shadow:
 animation:none;
 
 transform:
-translateY(-9px) scale(1.02);
+translateY(-9px)
+scale(1.02);
 
 border-color:#ff0000;
 
@@ -812,7 +840,7 @@ margin:15px 0 25px;
 ========================================================= */
 
 footer{
-padding:35px 0;
+padding:35px 20px;
 
 border-top:
 1px solid rgba(255,255,255,.08);
@@ -821,13 +849,17 @@ color:#756565;
 }
 
 .footer{
-width:1100px;
+width:min(1100px,100%);
 
 margin:auto;
 
 display:flex;
 
 justify-content:space-between;
+
+gap:20px;
+
+flex-wrap:wrap;
 }
 
 
@@ -860,9 +892,9 @@ display:flex;
 }
 
 .modal{
-width:900px;
+width:min(900px,96vw);
 
-max-height:90vh;
+max-height:92vh;
 
 overflow:auto;
 
@@ -993,7 +1025,7 @@ margin-bottom:5px;
 
 
 /* =========================================================
-   PURCHASE PROGRESS
+   PROGRESS
 ========================================================= */
 
 .progress-box{
@@ -1083,7 +1115,7 @@ display:flex;
 }
 
 .welcome-box{
-width:460px;
+width:min(460px,94vw);
 
 max-height:
 calc(100vh - 24px);
@@ -1194,7 +1226,7 @@ display:flex;
 }
 
 .reward-box{
-width:560px;
+width:min(560px,94vw);
 
 max-height:
 calc(100vh - 30px);
@@ -1332,7 +1364,7 @@ display:flex;
 }
 
 .thankyou-box{
-width:520px;
+width:min(520px,94vw);
 
 max-height:
 calc(100vh - 30px);
@@ -1456,36 +1488,255 @@ font-size:12px;
 color:#ff7777;
 
 margin-top:12px;
-
-animation:
-statusPulse 1.2s infinite;
 }
 
-@keyframes statusPulse{
 
-0%,100%{
-opacity:.5;
+/* =========================================================
+   COMPACT DESKTOP
+========================================================= */
+
+@media(max-width:1050px){
+
+.nav{
+height:68px;
 }
 
-50%{
-opacity:1;
+.hero{
+padding-top:90px;
+}
+
+.games,
+.coming-grid{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.game,
+.coming-card{
+height:340px;
 }
 
 }
 
 
 /* =========================================================
-   SMALLER SCREEN / COMPACT DESKTOP
+   TABLET
 ========================================================= */
 
-@media(max-width:1100px){
+@media(max-width:760px){
 
-body{
-overflow-x:auto;
+.nav{
+width:94%;
+
+height:auto;
+
+min-height:68px;
+
+padding:7px 0;
+
+align-items:center;
 }
 
-header{
-min-width:1100px;
+.logo-img{
+width:100px;
+height:52px;
+}
+
+nav{
+gap:10px;
+
+justify-content:flex-end;
+}
+
+nav a{
+font-size:9px;
+}
+
+.hero-inner{
+grid-template-columns:1fr;
+
+text-align:center;
+}
+
+.hero p{
+margin-left:auto;
+margin-right:auto;
+}
+
+.actions{
+justify-content:center;
+}
+
+.hero-logo{
+width:280px;
+}
+
+.deals{
+grid-template-columns:1fr;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.payment{
+grid-template-columns:1fr;
+}
+
+.modal-grid{
+grid-template-columns:1fr;
+}
+
+.modal-image{
+height:230px;
+
+min-height:230px;
+}
+
+.modal-content{
+padding:25px;
+}
+
+.footer{
+justify-content:center;
+
+text-align:center;
+}
+
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media(max-width:520px){
+
+section{
+padding:
+65px 14px;
+}
+
+.nav{
+gap:8px;
+}
+
+.logo-img{
+width:85px;
+}
+
+nav{
+gap:7px;
+}
+
+nav a{
+font-size:7px;
+
+letter-spacing:.5px;
+}
+
+.hero{
+padding:
+100px 14px
+50px;
+}
+
+.hero h1{
+font-size:48px;
+
+letter-spacing:-3px;
+}
+
+.hero-logo{
+width:220px;
+}
+
+.games,
+.coming-grid{
+grid-template-columns:
+repeat(2,1fr);
+
+gap:10px;
+}
+
+.game,
+.coming-card{
+height:250px;
+
+border-radius:15px;
+}
+
+.game-info,
+.coming-info{
+left:12px;
+right:12px;
+bottom:12px;
+}
+
+.game-info h3,
+.coming-info h3{
+font-size:17px;
+}
+
+.game-info p,
+.coming-info p{
+font-size:10px;
+}
+
+.game-info small{
+font-size:8px;
+}
+
+.coming-badge{
+font-size:7px;
+
+padding:6px 8px;
+}
+
+.deal{
+padding:25px;
+
+min-height:auto;
+}
+
+.payment-card{
+padding:24px;
+}
+
+.contact{
+padding:45px 18px;
+}
+
+.contact h2{
+font-size:35px;
+}
+
+.welcome-box{
+padding:25px 18px;
+}
+
+.welcome-logo{
+width:120px;
+}
+
+.welcome-box h2{
+font-size:30px;
+}
+
+.reward-box{
+padding:28px 18px;
+}
+
+.reward-box h2{
+font-size:30px;
+}
+
+.thankyou-box{
+padding:32px 20px;
+}
+
+.thankyou-box h2{
+font-size:35px;
 }
 
 }
@@ -1493,27 +1744,24 @@ min-width:1100px;
 
 /* =========================================================
    VERY SHORT SCREENS
-   MAKES WELCOME POPUP FIT
 ========================================================= */
 
 @media(max-height:650px){
 
 .welcome-box{
-padding:20px 22px;
+padding:20px;
 
-width:430px;
-
-border-radius:20px;
+width:min(430px,94vw);
 }
 
 .welcome-logo{
-width:105px;
+width:100px;
 
 margin-bottom:5px;
 }
 
 .welcome-box h2{
-font-size:28px;
+font-size:27px;
 
 margin-bottom:8px;
 }
@@ -1534,52 +1782,15 @@ padding:11px 15px;
 
 
 /* =========================================================
-   SHORT MOBILE-LIKE VIEW
+   REDUCE ANIMATION FOR ACCESSIBILITY
 ========================================================= */
 
-@media(max-width:600px){
+@media(prefers-reduced-motion:reduce){
 
-.welcome-box{
-width:94vw;
-
-max-height:
-calc(100vh - 20px);
-
-padding:24px 18px;
-}
-
-.welcome-logo{
-width:120px;
-}
-
-.welcome-box h2{
-font-size:30px;
-}
-
-.modal{
-width:95vw;
-}
-
-.modal-grid{
-grid-template-columns:1fr;
-}
-
-.modal-image{
-height:220px;
-min-height:220px;
-}
-
-}
-
-
-/* =========================================================
-   ALWAYS DESKTOP MODE
-========================================================= */
-
-@media(max-width:1100px){
-
-.page{
-min-width:1100px;
+*{
+animation-duration:.01ms !important;
+animation-iteration-count:1 !important;
+scroll-behavior:auto !important;
 }
 
 }
@@ -1672,7 +1883,7 @@ alt="DARK Logo">
 
 <a href="#payment">PAYMENT</a>
 
-<a href="#coming">COMING SOON</a>
+<a href="#coming">COMING</a>
 
 <a href="#contact">CONTACT</a>
 
@@ -2178,7 +2389,6 @@ Stay tuned for the next drop.
 
 </div>
 
-
 <div class="coming-grid">
 
 
@@ -2386,14 +2596,13 @@ id="modal">
 
 <div class="modal-grid">
 
-
 <div class="modal-image">
 
 <img
-id="productImage">
+id="productImage"
+alt="Product">
 
 </div>
-
 
 <div class="modal-content">
 
@@ -2417,16 +2626,13 @@ id="productName">
 id="productType">
 </p>
 
-<div id="packages">
-</div>
-
+<div id="packages"></div>
 
 <input
 class="field"
 id="player"
 placeholder="Enter Gamer ID / Username"
 autocomplete="off">
-
 
 <label
 class="transaction-label"
@@ -2441,7 +2647,6 @@ class="field"
 id="transactionId"
 placeholder="Enter your MMG Transaction ID"
 autocomplete="off">
-
 
 <div
 class="progress-box"
@@ -2473,7 +2678,6 @@ id="progressFill">
 </div>
 
 </div>
-
 
 <button
 class="btn primary"
@@ -2643,7 +2847,7 @@ CONTINUE TO WHATSAPP →
 class="whatsapp-status"
 id="whatsappStatus">
 
-Opening WhatsApp automatically...
+Tap the button above to continue.
 
 </div>
 
@@ -2748,9 +2952,7 @@ popup.classList.remove("open");
 function closeWelcome(){
 
 document
-.getElementById(
-"welcomePopup"
-)
+.getElementById("welcomePopup")
 .classList.remove("open");
 
 }
@@ -2782,6 +2984,7 @@ packages
 ){
 
 currentGame=name;
+
 currentPackage="";
 
 document.getElementById(
@@ -2827,9 +3030,7 @@ button.onclick=
 function(){
 
 document
-.querySelectorAll(
-".package"
-)
+.querySelectorAll(".package")
 .forEach(
 function(x){
 
@@ -2964,8 +3165,7 @@ Math.min(
 
 document.getElementById(
 "progressBox"
-).style.display=
-"block";
+).style.display="block";
 
 document.getElementById(
 "purchaseCount"
@@ -3008,17 +3208,13 @@ function sendOrder(){
 
 let player=
 document
-.getElementById(
-"player"
-)
+.getElementById("player")
 .value
 .trim();
 
 let transactionId=
 document
-.getElementById(
-"transactionId"
-)
+.getElementById("transactionId")
 .value
 .trim();
 
@@ -3062,7 +3258,9 @@ return;
 }
 
 
-/* PURCHASE COUNT */
+/* =====================================================
+   PURCHASE COUNT
+===================================================== */
 
 let oldCount=
 getPurchaseCount(
@@ -3082,7 +3280,9 @@ player
 );
 
 
-/* REWARD MESSAGE */
+/* =====================================================
+   REWARD MESSAGE
+===================================================== */
 
 let rewardMessage="";
 
@@ -3096,7 +3296,9 @@ rewardMessage=
 }
 
 
-/* WHATSAPP MESSAGE */
+/* =====================================================
+   WHATSAPP MESSAGE
+===================================================== */
 
 let message=
 "Hi DARK! I want to place an order.%0A%0A"+
@@ -3126,19 +3328,25 @@ newCount+
 rewardMessage;
 
 
-/* CREATE WHATSAPP URL */
+/* =====================================================
+   CREATE WHATSAPP URL
+===================================================== */
 
 pendingWhatsAppUrl=
 "https://wa.me/13436555995?text="+
 message;
 
 
-/* CLOSE PRODUCT */
+/* =====================================================
+   CLOSE PRODUCT
+===================================================== */
 
 closeProduct();
 
 
-/* SHOW THANK YOU FIRST */
+/* =====================================================
+   SHOW THANK YOU FIRST
+===================================================== */
 
 document
 .getElementById(
@@ -3147,29 +3355,37 @@ document
 .classList.add("open");
 
 
-/*
-   OPEN WHATSAPP AFTER THANK YOU
-   POPUP HAS APPEARED
-*/
+/* =====================================================
+   UPDATE THANK YOU STATUS
+===================================================== */
 
-setTimeout(
-function(){
-
-continueToWhatsApp();
-
-},
-2500
-);
+document.getElementById(
+"whatsappStatus"
+).textContent=
+"Tap CONTINUE TO WHATSAPP when you're ready.";
 
 
-/*
-   REWARD AFTER THANK YOU
-*/
+/* =====================================================
+   SHOW REWARD AFTER THANK YOU
+===================================================== */
 
 if(newCount>=5){
 
 setTimeout(
 function(){
+
+/*
+   Only show reward if
+   thank-you popup is still open.
+*/
+
+if(
+document
+.getElementById(
+"thankyouPopup"
+)
+.classList.contains("open")
+){
 
 document
 .getElementById(
@@ -3177,8 +3393,10 @@ document
 )
 .classList.add("open");
 
+}
+
 },
-7000
+3500
 );
 
 }
@@ -3199,7 +3417,7 @@ return;
 }
 
 
-/* UPDATE STATUS */
+/* STATUS */
 
 document.getElementById(
 "whatsappStatus"
@@ -3207,7 +3425,9 @@ document.getElementById(
 "Opening WhatsApp...";
 
 
-/* OPEN WHATSAPP */
+/* =====================================================
+   OPEN WHATSAPP
+===================================================== */
 
 window.open(
 pendingWhatsAppUrl,
@@ -3215,9 +3435,29 @@ pendingWhatsAppUrl,
 );
 
 
-/* STOP REPEATED AUTOMATIC OPEN */
+/* =====================================================
+   CLEAR URL AFTER OPEN
+===================================================== */
 
 pendingWhatsAppUrl="";
+
+
+/* =====================================================
+   CLOSE THANK YOU
+===================================================== */
+
+setTimeout(
+function(){
+
+document
+.getElementById(
+"thankyouPopup"
+)
+.classList.remove("open");
+
+},
+400
+);
 
 }
 
@@ -3257,9 +3497,7 @@ document
 ========================================================= */
 
 document
-.getElementById(
-"modal"
-)
+.getElementById("modal")
 .onclick=
 function(e){
 
@@ -3277,9 +3515,7 @@ closeProduct();
 ========================================================= */
 
 document
-.getElementById(
-"rewardPopup"
-)
+.getElementById("rewardPopup")
 .onclick=
 function(e){
 
@@ -3297,9 +3533,7 @@ closeReward();
 ========================================================= */
 
 document
-.getElementById(
-"thankyouPopup"
-)
+.getElementById("thankyouPopup")
 .onclick=
 function(e){
 
@@ -3314,4 +3548,4 @@ closeThankYou();
 </script>
 
 </body>
-</html>
+   </html>
