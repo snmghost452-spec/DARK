@@ -6,8 +6,16 @@
 <title>DARK | Gaming Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#030406;
@@ -36,10 +44,17 @@ radial-gradient(circle at 80% 40%,rgba(0,255,140,.10),transparent 25%);
 pointer-events:none;
 }
 
-a{text-decoration:none;color:inherit}
-button,input{font:inherit}
+a{
+text-decoration:none;
+color:inherit
+}
+
+button,input{
+font:inherit
+}
 
 /* HEADER */
+
 header{
 position:fixed;
 top:0;
@@ -94,6 +109,7 @@ border-radius:10px;
 }
 
 /* HERO */
+
 .hero{
 min-height:100vh;
 padding-top:78px;
@@ -172,6 +188,7 @@ color:#fff;
 }
 
 /* HERO LOGO */
+
 .hero-logo{
 width:min(450px,90%);
 display:block;
@@ -188,6 +205,7 @@ animation:float 4s ease-in-out infinite;
 }
 
 /* SECTIONS */
+
 section{
 padding:100px 0;
 }
@@ -209,6 +227,7 @@ margin-bottom:35px;
 }
 
 /* GAMES */
+
 .games{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -229,7 +248,8 @@ transition:.35s;
 .game:hover{
 transform:translateY(-9px);
 border-color:#00aaff;
-box-shadow:0 20px 60px rgba(0,0,0,.6),
+box-shadow:
+0 20px 60px rgba(0,0,0,.6),
 0 0 30px rgba(0,170,255,.18);
 }
 
@@ -248,7 +268,8 @@ transform:scale(1.08);
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
+background:
+linear-gradient(
 transparent 25%,
 rgba(0,0,0,.95)
 );
@@ -278,6 +299,7 @@ color:#aab4c0;
 }
 
 /* DEALS */
+
 .deals{
 display:grid;
 grid-template-columns:1.4fr .8fr;
@@ -304,6 +326,7 @@ margin-bottom:25px;
 }
 
 /* FEATURES */
+
 .features{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -331,6 +354,7 @@ line-height:1.6;
 }
 
 /* PAYMENT */
+
 .payment{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -362,6 +386,7 @@ color:#8290a0;
 }
 
 /* CONTACT */
+
 .contact{
 text-align:center;
 padding:70px 30px;
@@ -378,6 +403,7 @@ margin:15px 0 25px;
 }
 
 /* FOOTER */
+
 footer{
 padding:35px 0;
 border-top:1px solid rgba(255,255,255,.08);
@@ -391,7 +417,8 @@ display:flex;
 justify-content:space-between;
 }
 
-/* PRODUCT POPUP */
+/* MODAL */
+
 .modal-bg{
 position:fixed;
 inset:0;
@@ -484,8 +511,195 @@ outline:none;
 border-color:#00aaff;
 }
 
+/* WELCOME POPUP */
+
+.welcome-bg{
+position:fixed;
+inset:0;
+z-index:9999;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:
+radial-gradient(circle at center,rgba(0,170,255,.18),transparent 45%),
+rgba(0,0,0,.88);
+backdrop-filter:blur(18px);
+}
+
+.welcome-box{
+width:min(520px,95%);
+padding:45px 30px;
+text-align:center;
+border-radius:30px;
+background:
+linear-gradient(
+145deg,
+rgba(8,15,25,.98),
+rgba(2,7,13,.98)
+);
+border:1px solid rgba(0,174,255,.5);
+box-shadow:
+0 0 40px rgba(0,140,255,.2),
+0 30px 100px #000;
+animation:welcomeIn .7s ease;
+}
+
+@keyframes welcomeIn{
+from{
+opacity:0;
+transform:scale(.75) translateY(30px);
+}
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+}
+
+.welcome-logo{
+width:190px;
+max-width:80%;
+filter:
+drop-shadow(0 0 15px #008cff)
+drop-shadow(0 0 35px rgba(0,140,255,.7));
+margin-bottom:20px;
+}
+
+.welcome-box .tag{
+margin-bottom:10px;
+}
+
+.welcome-box h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.welcome-box p{
+color:#9aa8b7;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+/* PURCHASE PROGRESS */
+
+.progress-box{
+margin:20px 0;
+padding:18px;
+border-radius:15px;
+background:rgba(0,170,255,.06);
+border:1px solid rgba(0,170,255,.15);
+}
+
+.progress-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+font-weight:900;
+}
+
+.progress-bar{
+height:10px;
+border-radius:20px;
+background:#101820;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00aaff,#00e5ff);
+box-shadow:0 0 15px #00aaff;
+transition:.5s;
+}
+
+/* REWARD POPUP */
+
+.reward-bg{
+position:fixed;
+inset:0;
+z-index:10000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:rgba(0,0,0,.88);
+backdrop-filter:blur(16px);
+}
+
+.reward-bg.open{
+display:flex;
+}
+
+.reward-box{
+width:min(600px,95%);
+text-align:center;
+padding:40px 25px;
+border-radius:30px;
+background:
+linear-gradient(
+145deg,
+#07131d,
+#03070c
+);
+border:1px solid #00c8ff;
+box-shadow:
+0 0 60px rgba(0,170,255,.3),
+0 30px 100px #000;
+animation:rewardIn .6s ease;
+}
+
+@keyframes rewardIn{
+from{
+opacity:0;
+transform:scale(.6) rotate(-2deg);
+}
+to{
+opacity:1;
+transform:scale(1) rotate(0);
+}
+}
+
+.reward-icon{
+font-size:65px;
+margin-bottom:10px;
+}
+
+.reward-box h2{
+color:#00d9ff;
+font-size:42px;
+margin-bottom:15px;
+text-shadow:0 0 20px #008cff;
+}
+
+.reward-box p{
+color:#a7b5c4;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.reward-list{
+display:grid;
+gap:10px;
+margin:20px 0 25px;
+}
+
+.reward-item{
+display:flex;
+justify-content:space-between;
+padding:15px;
+border-radius:12px;
+background:#0b151e;
+border:1px solid rgba(0,170,255,.15);
+}
+
+.reward-item strong{
+color:#00d9ff;
+}
+
 /* MOBILE */
+
 @media(max-width:950px){
+
 .hero-inner{
 grid-template-columns:1fr;
 text-align:center;
@@ -508,6 +722,7 @@ grid-template-columns:repeat(2,1fr);
 .deals{
 grid-template-columns:1fr;
 }
+
 }
 
 @media(max-width:700px){
@@ -563,43 +778,99 @@ min-height:0;
 flex-direction:column;
 gap:10px;
 }
+
+.welcome-box h2,
+.reward-box h2{
+font-size:32px;
 }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- WELCOME POPUP -->
+
+<div class="welcome-bg" id="welcomePopup">
+
+<div class="welcome-box">
+
+<img
+class="welcome-logo"
+src="1787436309105.png"
+alt="DARK">
+
+<div class="tag">DARK DIGITAL GAMING</div>
+
+<h2>WELCOME TO<br>DARK STORE</h2>
+
+<p>
+Level up your gaming experience.
+Get Robux, Diamonds, CP and UC
+quickly and easily.
+</p>
+
+<button
+class="btn primary"
+style="width:100%"
+onclick="closeWelcome()">
+NEXT →
+</button>
+
+</div>
+
+</div>
+
+
 <header>
+
 <div class="nav">
 
 <a href="#home">
-<img class="logo-img"
+
+<img
+class="logo-img"
 src="1787436309105.png"
 alt="DARK Logo">
+
 </a>
 
 <nav id="nav">
+
 <a href="#home">HOME</a>
 <a href="#games">GAMING</a>
 <a href="#deals">DEALS</a>
 <a href="#payment">PAYMENT</a>
 <a href="#contact">CONTACT</a>
+
 </nav>
 
-<button class="menu"
+<button
+class="menu"
 onclick="document.getElementById('nav').classList.toggle('open')">
+
 ☰
+
 </button>
 
 </div>
+
 </header>
 
+
 <!-- HERO -->
+
 <section class="hero" id="home">
+
 <div class="hero-inner">
 
 <div>
-<div class="tag">DARK DIGITAL GAMING</div>
+
+<div class="tag">
+DARK DIGITAL GAMING
+</div>
 
 <h1>
 LEVEL UP<br>
@@ -613,332 +884,842 @@ through DARK.
 </p>
 
 <div class="actions">
-<a href="#games" class="btn primary">
+
+<a
+href="#games"
+class="btn primary">
 EXPLORE GAMING →
 </a>
 
-<a href="#contact" class="btn secondary">
+<a
+href="#contact"
+class="btn secondary">
 CONTACT DARK
 </a>
-</div>
+
 </div>
 
+</div>
+
+
 <div>
+
 <img
 class="hero-logo"
 src="1787436309105.png"
 alt="DARK">
+
 </div>
 
 </div>
+
 </section>
 
+
 <!-- GAMES -->
+
 <section id="games">
+
 <div class="wrap">
 
-<div class="tag">DARK GAMING</div>
-<h2>Choose Your Game</h2>
+<div class="tag">
+DARK GAMING
+</div>
+
+<h2>
+Choose Your Game
+</h2>
 
 <p class="desc">
 Tap a game to see its exact packages and start your order.
 </p>
 
+
 <div class="games">
 
-<div class="game"
-onclick="openProduct('Roblox','Robux','images/f93f089a3d8211ede4c832c3a24efe1e.jpg',
-[['40 Robux','300'],['80 Robux','600'],['500 Robux','1,300'],['1,000 Robux','2,300'],['2,000 Robux','4,600'],['4,500 Robux','11,300'],['10,000 Robux','21,500'],['22,500 Robux','43,000']])">
+
+<!-- ROBLOX -->
+
+<div
+class="game"
+onclick="openProduct(
+'Roblox',
+'Robux',
+'images/f93f089a3d8211ede4c832c3a24efe1e.jpg',
+[
+['40 Robux','300'],
+['80 Robux','600'],
+['500 Robux','1,300'],
+['1,000 Robux','2,300'],
+['2,000 Robux','4,600'],
+['4,500 Robux','11,300'],
+['10,000 Robux','21,500'],
+['22,500 Robux','43,000']
+])">
 
 <img src="images/f93f089a3d8211ede4c832c3a24efe1e.jpg">
+
 <div class="game-info">
-<small>ROBLOX</small>
-<h3>Robux</h3>
-<p>Tap to view packages</p>
-</div>
+
+<small>
+ROBLOX
+</small>
+
+<h3>
+Robux
+</h3>
+
+<p>
+Tap to view packages
+</p>
+
 </div>
 
-<div class="game"
-onclick="openProduct('Free Fire','Diamonds','images/30de15ba0e69c62e5e5987ceaae08401.jpg',
-[['100 Diamonds','300'],['210 Diamonds','600'],['530 Diamonds','1,300'],['1,080 Diamonds','2,500'],['2,200 Diamonds','5,200']])">
+</div>
+
+
+<!-- FREE FIRE -->
+
+<div
+class="game"
+onclick="openProduct(
+'Free Fire',
+'Diamonds',
+'images/30de15ba0e69c62e5e5987ceaae08401.jpg',
+[
+['100 Diamonds','300'],
+['210 Diamonds','600'],
+['530 Diamonds','1,300'],
+['1,080 Diamonds','2,500'],
+['2,200 Diamonds','5,200']
+])">
 
 <img src="images/30de15ba0e69c62e5e5987ceaae08401.jpg">
+
 <div class="game-info">
-<small>FREE FIRE</small>
-<h3>Diamonds</h3>
-<p>Tap to view packages</p>
-</div>
+
+<small>
+FREE FIRE
+</small>
+
+<h3>
+Diamonds
+</h3>
+
+<p>
+Tap to view packages
+</p>
+
 </div>
 
-<div class="game"
-onclick="openProduct('Call of Duty Mobile','CP','images/f9f56c26780ac312b21e2d3a7da703f5.jpg',
-[['80 CP','400'],['420 CP','1,300'],['880 CP','2,300'],['2,400 CP','5,500'],['5,000 CP','11,000'],['10,800 CP','21,500']])">
+</div>
+
+
+<!-- COD MOBILE -->
+
+<div
+class="game"
+onclick="openProduct(
+'Call of Duty Mobile',
+'CP',
+'images/f9f56c26780ac312b21e2d3a7da703f5.jpg',
+[
+['80 CP','400'],
+['420 CP','1,300'],
+['880 CP','2,300'],
+['2,400 CP','5,500'],
+['5,000 CP','11,000'],
+['10,800 CP','21,500']
+])">
 
 <img src="images/f9f56c26780ac312b21e2d3a7da703f5.jpg">
+
 <div class="game-info">
-<small>CALL OF DUTY</small>
-<h3>CP</h3>
-<p>Tap to view packages</p>
-</div>
+
+<small>
+CALL OF DUTY
+</small>
+
+<h3>
+CP
+</h3>
+
+<p>
+Tap to view packages
+</p>
+
 </div>
 
-<div class="game"
-onclick="openProduct('PUBG Mobile','UC','images/f31054399c0c2604548ba7dfdced2a62.jpg',
-[['60 UC','300'],['325 UC','1,300'],['660 UC','2,300'],['1,800 UC','5,500'],['3,850 UC','11,400'],['8,100 UC','21,500']])">
+</div>
+
+
+<!-- PUBG -->
+
+<div
+class="game"
+onclick="openProduct(
+'PUBG Mobile',
+'UC',
+'images/f31054399c0c2604548ba7dfdced2a62.jpg',
+[
+['60 UC','300'],
+['325 UC','1,300'],
+['660 UC','2,300'],
+['1,800 UC','5,500'],
+['3,850 UC','11,400'],
+['8,100 UC','21,500']
+])">
 
 <img src="images/f31054399c0c2604548ba7dfdced2a62.jpg">
+
 <div class="game-info">
-<small>PUBG MOBILE</small>
-<h3>UC</h3>
-<p>Tap to view packages</p>
-</div>
+
+<small>
+PUBG MOBILE
+</small>
+
+<h3>
+UC
+</h3>
+
+<p>
+Tap to view packages
+</p>
+
 </div>
 
 </div>
+
+
 </div>
+
+</div>
+
 </section>
 
+
 <!-- DEALS -->
+
 <section id="deals">
+
 <div class="wrap">
 
-<div class="tag">DARK EXCLUSIVE</div>
-<h2>Deals & Drops</h2>
+<div class="tag">
+DARK EXCLUSIVE
+</div>
+
+<h2>
+Deals & Drops
+</h2>
 
 <div class="deals">
 
+
 <div class="deal">
-<h3>Power Up Your Game.</h3>
+
+<h3>
+Power Up Your Game.
+</h3>
+
 <p>
 Choose from DARK's gaming top-ups and get your order
 started in a few taps.
 </p>
-<a href="#games" class="btn primary">SHOP NOW</a>
+
+<a
+href="#games"
+class="btn primary">
+SHOP NOW
+</a>
+
 </div>
+
 
 <div class="deal">
-<h3>More Coming.</h3>
+
+<h3>
+5 Purchases = FREE!
+</h3>
+
 <p>
-Gift cards and additional digital products can be added
-as DARK grows.
+Buy from DARK five times using the same Gamer ID
+and unlock a free gaming top-up reward.
 </p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
 <!-- FEATURES -->
+
 <section>
+
 <div class="wrap">
 
-<div class="tag">WHY DARK</div>
-<h2>Built For Gamers.</h2>
+<div class="tag">
+WHY DARK
+</div>
+
+<h2>
+Built For Gamers.
+</h2>
 
 <div class="features">
 
+
 <div class="feature">
+
 <span>⚡</span>
-<h3>Fast Ordering</h3>
+
+<h3>
+Fast Ordering
+</h3>
+
 <p>
 Choose your game and package and send your order request.
 </p>
+
 </div>
 
+
 <div class="feature">
+
 <span>🛡️</span>
-<h3>Clear Payment</h3>
+
+<h3>
+Clear Payment
+</h3>
+
 <p>
 Payment information is displayed clearly before you order.
 </p>
+
 </div>
 
+
 <div class="feature">
+
 <span>🎮</span>
-<h3>Gaming Focused</h3>
+
+<h3>
+Gaming Focused
+</h3>
+
 <p>
 DARK is built around gaming top-ups and digital products.
 </p>
+
+</div>
+
+
 </div>
 
 </div>
-</div>
+
 </section>
 
+
 <!-- PAYMENT -->
+
 <section id="payment">
+
 <div class="wrap">
 
-<div class="tag">PAYMENT</div>
-<h2>Complete Your Order</h2>
+<div class="tag">
+PAYMENT
+</div>
+
+<h2>
+Complete Your Order
+</h2>
 
 <div class="payment">
 
-<div class="payment-card">
-<h3>MMG</h3>
-
-<div class="line">
-<span>Number</span>
-<strong>762-6433</strong>
-</div>
-
-<div class="line">
-<span>Merchant</span>
-<strong>CASSIA HENRY</strong>
-</div>
-
-</div>
 
 <div class="payment-card">
-<h3>How It Works</h3>
+
+<h3>
+MMG
+</h3>
 
 <div class="line">
-<span>01</span>
-<strong>Choose game</strong>
+
+<span>
+Number
+</span>
+
+<strong>
+762-6433
+</strong>
+
 </div>
+
 
 <div class="line">
-<span>02</span>
-<strong>Choose package</strong>
+
+<span>
+Merchant
+</span>
+
+<strong>
+CASSIA
+</strong>
+
 </div>
+
+</div>
+
+
+<div class="payment-card">
+
+<h3>
+How It Works
+</h3>
 
 <div class="line">
-<span>03</span>
-<strong>Enter Player ID</strong>
+
+<span>
+01
+</span>
+
+<strong>
+Choose game
+</strong>
+
 </div>
+
 
 <div class="line">
-<span>04</span>
-<strong>Send order</strong>
+
+<span>
+02
+</span>
+
+<strong>
+Choose package
+</strong>
+
+</div>
+
+
+<div class="line">
+
+<span>
+03
+</span>
+
+<strong>
+Enter Gamer ID
+</strong>
+
+</div>
+
+
+<div class="line">
+
+<span>
+04
+</span>
+
+<strong>
+Send order
+</strong>
+
+</div>
+
+
+<div class="line">
+
+<span>
+05
+</span>
+
+<strong>
+Every 5 purchases = FREE
+</strong>
+
+</div>
+
 </div>
 
 </div>
 
 </div>
-</div>
+
 </section>
 
+
 <!-- CONTACT -->
+
 <section id="contact">
+
 <div class="wrap">
 
 <div class="contact">
 
-<div class="tag">CONTACT DARK</div>
+<div class="tag">
+CONTACT DARK
+</div>
 
-<h2>Ready To Level Up?</h2>
+<h2>
+Ready To Level Up?
+</h2>
 
 <p>
 Message DARK to place your gaming order.
 </p>
 
-<div class="actions" style="justify-content:center">
+<div
+class="actions"
+style="justify-content:center">
+
 
 <a
 class="btn primary"
 href="https://wa.me/13436555995"
 target="_blank">
+
 WHATSAPP
+
 </a>
+
 
 <a
 class="btn secondary"
 href="https://wa.me/5927002769"
 target="_blank">
+
 SECOND CONTACT
+
 </a>
 
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
 <footer>
+
 <div class="footer">
-<strong>DARK</strong>
-<span>Digital Gaming Store • Guyana</span>
-<span>© 2026 DARK</span>
+
+<strong>
+DARK
+</strong>
+
+<span>
+Digital Gaming Store • Guyana
+</span>
+
+<span>
+© 2026 DARK
+</span>
+
 </div>
+
 </footer>
 
+
 <!-- PRODUCT WINDOW -->
-<div class="modal-bg" id="modal">
+
+<div
+class="modal-bg"
+id="modal">
 
 <div class="modal">
 
 <div class="modal-grid">
 
+
 <div class="modal-image">
+
 <img id="productImage">
+
 </div>
+
 
 <div class="modal-content">
 
-<button class="close" onclick="closeProduct()">×</button>
+<button
+class="close"
+onclick="closeProduct()">
 
-<div class="tag">DARK GAMING</div>
+×
+
+</button>
+
+
+<div class="tag">
+DARK GAMING
+</div>
 
 <h2 id="productName"></h2>
 
 <p id="productType"></p>
 
+
 <div id="packages"></div>
+
+
+<!-- GAMER ID -->
 
 <input
 class="field"
 id="player"
-placeholder="Enter Player ID / Username">
+placeholder="Enter Gamer ID / Username">
+
+
+<!-- PURCHASE PROGRESS -->
+
+<div
+class="progress-box"
+id="progressBox"
+style="display:none">
+
+<div class="progress-title">
+
+<span>
+Your DARK Progress
+</span>
+
+<strong id="purchaseCount">
+0 / 5
+</strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
 
 <button
 class="btn primary"
 style="width:100%"
 onclick="sendOrder()">
+
 SEND ORDER →
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REWARD POPUP -->
+
+<div
+class="reward-bg"
+id="rewardPopup">
+
+<div class="reward-box">
+
+<div class="reward-icon">
+🎉
+</div>
+
+<div class="tag">
+DARK REWARD
+</div>
+
+<h2>
+YOU GOT A FREE TOP-UP!
+</h2>
+
+<p>
+Congratulations! You reached 5 purchases.
+Choose one FREE reward from the games below.
+</p>
+
+
+<div class="reward-list">
+
+<div class="reward-item">
+
+<span>
+PUBG Mobile
+</span>
+
+<strong>
+325 UC
+</strong>
+
+</div>
+
+
+<div class="reward-item">
+
+<span>
+Roblox
+</span>
+
+<strong>
+500 Robux
+</strong>
+
+</div>
+
+
+<div class="reward-item">
+
+<span>
+Call of Duty Mobile
+</span>
+
+<strong>
+420 CP
+</strong>
+
+</div>
+
+
+<div class="reward-item">
+
+<span>
+Free Fire
+</span>
+
+<strong>
+600 Diamonds
+</strong>
+
+</div>
+
+</div>
+
+
+<button
+class="btn primary"
+style="width:100%"
+onclick="closeReward()">
+
+CLAIM REWARD →
+
 </button>
 
 </div>
 
 </div>
-</div>
-</div>
+
 
 <script>
+
+/* =========================================
+   DARK STORE
+   ========================================= */
 
 let currentGame="";
 let currentPackage="";
 
-function openProduct(name,type,image,packages){
+
+/* =========================================
+   WELCOME POPUP
+   ========================================= */
+
+function closeWelcome(){
+
+document.getElementById(
+"welcomePopup"
+).style.display="none";
+
+}
+
+
+/* =========================================
+   OPEN PRODUCT
+   ========================================= */
+
+function openProduct(
+name,
+type,
+image,
+packages
+){
 
 currentGame=name;
 currentPackage="";
 
-document.getElementById("productName").textContent=name;
-document.getElementById("productType").textContent=
+document.getElementById(
+"productName"
+).textContent=name;
+
+document.getElementById(
+"productType"
+).textContent=
 "Choose your "+type+" package.";
 
-document.getElementById("productImage").src=image;
+document.getElementById(
+"productImage"
+).src=image;
 
-let box=document.getElementById("packages");
+
+/* PACKAGE LIST */
+
+let box=document.getElementById(
+"packages"
+);
+
 box.innerHTML="";
+
 
 packages.forEach(function(p){
 
-let button=document.createElement("button");
+let button=document.createElement(
+"button"
+);
 
 button.className="package";
 
 button.innerHTML=
-"<span>"+p[0]+"</span><strong>GYD $"+p[1]+"</strong>";
+"<span>"+
+p[0]+
+"</span><strong>GYD $"+
+p[1]+
+"</strong>";
+
 
 button.onclick=function(){
 
-document.querySelectorAll(".package")
-.forEach(x=>x.classList.remove("selected"));
+document
+.querySelectorAll(".package")
+.forEach(function(x){
 
-button.classList.add("selected");
+x.classList.remove(
+"selected"
+);
 
-currentPackage=p[0]+" — GYD $"+p[1];
+});
+
+button.classList.add(
+"selected"
+);
+
+currentPackage=
+p[0]+
+" — GYD $"+
+p[1];
 
 };
 
@@ -946,54 +1727,310 @@ box.appendChild(button);
 
 });
 
-document.getElementById("modal").classList.add("open");
 
-document.body.style.overflow="hidden";
+/* RESET PLAYER */
+
+document.getElementById(
+"player"
+).value="";
+
+
+/* SHOW MODAL */
+
+document.getElementById(
+"modal"
+).classList.add("open");
+
+document.body.style.overflow=
+"hidden";
+
 }
+
+
+/* =========================================
+   CLOSE PRODUCT
+   ========================================= */
 
 function closeProduct(){
 
-document.getElementById("modal").classList.remove("open");
+document.getElementById(
+"modal"
+).classList.remove("open");
 
 document.body.style.overflow="";
+
 }
 
-function sendOrder(){
 
-let player=document.getElementById("player").value.trim();
+/* =========================================
+   GET PURCHASE COUNT
+   ========================================= */
 
-if(!currentPackage){
+function getPurchaseCount(player){
 
-alert("Please choose a package.");
+let key=
+"DARK_PURCHASES_"+player
+.toLowerCase();
 
-return;
-}
-
-if(!player){
-
-alert("Please enter your Player ID or Username.");
-
-return;
-}
-
-let message=
-"Hi DARK! I want to place an order.%0A%0A"+
-"Game: "+encodeURIComponent(currentGame)+
-"%0APackage: "+encodeURIComponent(currentPackage)+
-"%0APlayer ID/Username: "+encodeURIComponent(player);
-
-window.open(
-"https://wa.me/13436555995?text="+message,
-"_blank"
+return parseInt(
+localStorage.getItem(key)
+||"0"
 );
 
 }
 
-document.getElementById("modal").onclick=function(e){
+
+/* =========================================
+   SAVE PURCHASE COUNT
+   ========================================= */
+
+function savePurchaseCount(
+player,
+count
+){
+
+let key=
+"DARK_PURCHASES_"+player
+.toLowerCase();
+
+localStorage.setItem(
+key,
+count
+);
+
+}
+
+
+/* =========================================
+   UPDATE PROGRESS
+   ========================================= */
+
+function updateProgress(player){
+
+if(!player){
+
+document.getElementById(
+"progressBox"
+).style.display="none";
+
+return;
+}
+
+let count=
+getPurchaseCount(player);
+
+let progress=
+Math.min(
+(count/5)*100,
+100
+);
+
+document.getElementById(
+"progressBox"
+).style.display="block";
+
+document.getElementById(
+"purchaseCount"
+).textContent=
+count+" / 5";
+
+document.getElementById(
+"progressFill"
+).style.width=
+progress+"%";
+
+}
+
+
+/* =========================================
+   PLAYER ID LIVE COUNTER
+   ========================================= */
+
+document.getElementById(
+"player"
+).addEventListener(
+"input",
+function(){
+
+updateProgress(
+this.value.trim()
+);
+
+}
+);
+
+
+/* =========================================
+   SEND ORDER
+   ========================================= */
+
+function sendOrder(){
+
+let player=
+document
+.getElementById("player")
+.value
+.trim();
+
+
+/* PACKAGE CHECK */
+
+if(!currentPackage){
+
+alert(
+"Please choose a package."
+);
+
+return;
+
+}
+
+
+/* PLAYER CHECK */
+
+if(!player){
+
+alert(
+"Please enter your Gamer ID or Username."
+);
+
+return;
+
+}
+
+
+/* CURRENT COUNT */
+
+let oldCount=
+getPurchaseCount(player);
+
+
+/* NEW PURCHASE */
+
+let newCount=
+oldCount+1;
+
+
+/* SAVE */
+
+savePurchaseCount(
+player,
+newCount
+);
+
+
+/* UPDATE PROGRESS */
+
+updateProgress(player);
+
+
+/* REWARD CHECK */
+
+let rewardMessage="";
+
+
+if(newCount>=5){
+
+rewardMessage=
+"%0A%0A🎉 CONGRATULATIONS! "+
+"This Gamer ID has reached 5 purchases. "+
+"Customer qualifies for a FREE TOP-UP reward.";
+
+}
+
+
+/* WHATSAPP MESSAGE */
+
+let message=
+"Hi DARK! I want to place an order.%0A%0A"+
+"Game: "+
+encodeURIComponent(
+currentGame
+)+
+"%0APackage: "+
+encodeURIComponent(
+currentPackage
+)+
+"%0AGamer ID/Username: "+
+encodeURIComponent(
+player
+)+
+"%0ADARK Purchase Count: "+
+newCount+
+" / 5"+
+rewardMessage;
+
+
+/* OPEN WHATSAPP */
+
+window.open(
+"https://wa.me/13436555995?text="+
+message,
+"_blank"
+);
+
+
+/* SHOW REWARD */
+
+if(newCount>=5){
+
+setTimeout(
+function(){
+
+document.getElementById(
+"rewardPopup"
+).classList.add("open");
+
+},
+600
+);
+
+}
+
+}
+
+
+/* =========================================
+   CLOSE REWARD
+   ========================================= */
+
+function closeReward(){
+
+document.getElementById(
+"rewardPopup"
+).classList.remove("open");
+
+}
+
+
+/* =========================================
+   CLOSE MODAL BY CLICKING OUTSIDE
+   ========================================= */
+
+document.getElementById(
+"modal"
+).onclick=function(e){
 
 if(e.target===this){
 
 closeProduct();
+
+}
+
+};
+
+
+/* =========================================
+   CLOSE REWARD BY CLICKING OUTSIDE
+   ========================================= */
+
+document.getElementById(
+"rewardPopup"
+).onclick=function(e){
+
+if(e.target===this){
+
+closeReward();
 
 }
 
