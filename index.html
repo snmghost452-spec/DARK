@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +43,11 @@ z-index:-5;
 background:
 linear-gradient(
 180deg,
-rgba(0,0,0,.48),
-#050000 85%
+rgba(0,0,0,.45),
+#050000 88%
 ),
-url("1787436314905.png") center/cover no-repeat;
+url("1787436314905.png")
+center/cover no-repeat;
 }
 
 body:after{
@@ -106,9 +106,12 @@ position:fixed;
 top:0;
 left:0;
 right:0;
+
 z-index:1000;
 
-background:rgba(5,0,0,.80);
+height:70px;
+
+background:rgba(5,0,0,.82);
 
 backdrop-filter:blur(18px);
 
@@ -117,20 +120,23 @@ border-bottom:
 }
 
 .nav{
-width:min(1100px,94%);
-height:74px;
+width:min(1100px,96%);
+height:70px;
+
 margin:auto;
 
 display:flex;
+
 align-items:center;
+
 justify-content:space-between;
 
-gap:25px;
+gap:20px;
 }
 
 .logo-img{
-width:125px;
-height:58px;
+width:110px;
+height:55px;
 
 object-fit:contain;
 
@@ -141,16 +147,15 @@ drop-shadow(0 0 25px rgba(255,0,0,.55));
 
 nav{
 display:flex;
+
 gap:20px;
 
 align-items:center;
-justify-content:flex-end;
-
-flex-wrap:wrap;
 }
 
 nav a{
-font-size:11px;
+font-size:10px;
+
 font-weight:900;
 
 letter-spacing:1px;
@@ -177,16 +182,15 @@ text-shadow:
 .hero{
 min-height:100vh;
 
-padding:
-100px 20px
-50px;
+padding-top:70px;
 
 display:flex;
+
 align-items:center;
 }
 
 .hero-inner{
-width:min(1100px,100%);
+width:min(1100px,94%);
 
 margin:auto;
 
@@ -203,13 +207,13 @@ align-items:center;
 .tag{
 color:#ff2020;
 
-font-size:10px;
+font-size:9px;
 
 font-weight:900;
 
 letter-spacing:3px;
 
-margin-bottom:15px;
+margin-bottom:13px;
 
 text-shadow:
 0 0 12px rgba(255,0,0,.45);
@@ -234,13 +238,13 @@ text-shadow:
 .hero p{
 max-width:530px;
 
-margin:25px 0;
+margin:24px 0;
 
 color:#b6a7a7;
 
 line-height:1.7;
 
-font-size:15px;
+font-size:14px;
 }
 
 .actions{
@@ -287,8 +291,7 @@ box-shadow:
 }
 
 .secondary{
-background:
-rgba(255,255,255,.045);
+background:rgba(255,255,255,.045);
 
 border:
 1px solid rgba(255,255,255,.15);
@@ -332,16 +335,17 @@ transform:translateY(-14px);
 ========================================================= */
 
 section{
-padding:80px 20px;
+padding:75px 0;
 }
 
 .wrap{
-width:min(1100px,100%);
+width:min(1100px,94%);
+
 margin:auto;
 }
 
 h2{
-font-size:clamp(38px,5vw,55px);
+font-size:clamp(40px,5vw,55px);
 
 margin-bottom:10px;
 }
@@ -351,7 +355,7 @@ color:#9b8989;
 
 line-height:1.6;
 
-margin-bottom:35px;
+margin-bottom:30px;
 }
 
 
@@ -365,7 +369,7 @@ display:grid;
 grid-template-columns:
 repeat(4,1fr);
 
-gap:16px;
+gap:15px;
 }
 
 .game{
@@ -414,6 +418,7 @@ transform:scale(1.08);
 content:"";
 
 position:absolute;
+
 inset:0;
 
 background:
@@ -427,7 +432,9 @@ rgba(0,0,0,.96)
 position:absolute;
 
 bottom:20px;
+
 left:20px;
+
 right:20px;
 
 z-index:2;
@@ -449,6 +456,217 @@ margin:8px 0;
 
 .game-info p{
 color:#b9a9a9;
+}
+
+
+/* =========================================================
+   COMING SOON
+   DIRECTLY UNDER GAMES
+========================================================= */
+
+.coming-soon{
+padding-top:55px;
+
+padding-bottom:80px;
+}
+
+.coming-title{
+text-align:center;
+
+margin-bottom:35px;
+}
+
+.coming-title h2{
+font-size:clamp(45px,6vw,62px);
+
+text-shadow:
+0 0 25px rgba(255,0,0,.35);
+}
+
+.coming-title p{
+color:#8f7f7f;
+
+margin-top:12px;
+
+line-height:1.6;
+}
+
+.coming-grid{
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:15px;
+}
+
+
+/* =========================================================
+   COMING SOON SHAKING
+========================================================= */
+
+.coming-card{
+height:370px;
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:20px;
+
+background:#0a0202;
+
+border:
+1px solid rgba(255,0,0,.25);
+
+animation:
+comingShake 2.8s ease-in-out infinite,
+comingGlow 2.2s ease-in-out infinite;
+}
+
+.coming-card:nth-child(2){
+animation-delay:.35s;
+}
+
+.coming-card:nth-child(3){
+animation-delay:.7s;
+}
+
+.coming-card:nth-child(4){
+animation-delay:1.05s;
+}
+
+@keyframes comingShake{
+
+0%,100%{
+transform:translateX(0) rotate(0deg);
+}
+
+10%{
+transform:translateX(-3px) rotate(-.6deg);
+}
+
+20%{
+transform:translateX(3px) rotate(.6deg);
+}
+
+30%{
+transform:translateX(-3px) rotate(-.5deg);
+}
+
+40%{
+transform:translateX(3px) rotate(.5deg);
+}
+
+50%{
+transform:translateX(0) rotate(0deg);
+}
+
+}
+
+@keyframes comingGlow{
+
+0%,100%{
+box-shadow:
+0 0 10px rgba(255,0,0,.08);
+}
+
+50%{
+box-shadow:
+0 0 35px rgba(255,0,0,.35),
+0 0 70px rgba(180,0,0,.12);
+}
+
+}
+
+.coming-card:hover{
+animation:none;
+
+transform:
+translateY(-9px) scale(1.02);
+
+border-color:#ff0000;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.7),
+0 0 40px rgba(255,0,0,.35);
+}
+
+.coming-card img{
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:.5s;
+}
+
+.coming-card:hover img{
+transform:scale(1.08);
+}
+
+.coming-card:after{
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+transparent 20%,
+rgba(0,0,0,.97)
+);
+}
+
+.coming-info{
+position:absolute;
+
+left:20px;
+right:20px;
+bottom:20px;
+
+z-index:2;
+}
+
+.coming-badge{
+display:inline-block;
+
+padding:7px 11px;
+
+border-radius:50px;
+
+font-size:9px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+color:#fff;
+
+background:
+linear-gradient(
+135deg,
+#ff0000,
+#ff3b1f
+);
+
+box-shadow:
+0 0 18px rgba(255,0,0,.4);
+}
+
+.coming-info h3{
+font-size:24px;
+
+margin-top:12px;
+}
+
+.coming-info p{
+color:#ad9b9b;
+
+margin-top:6px;
+
+font-size:13px;
 }
 
 
@@ -584,228 +802,6 @@ color:#938383;
 
 
 /* =========================================================
-   COMING SOON
-========================================================= */
-
-.coming-soon{
-padding-top:80px;
-
-padding-bottom:100px;
-}
-
-.coming-title{
-text-align:center;
-
-margin-bottom:45px;
-}
-
-.coming-title h2{
-font-size:clamp(45px,6vw,62px);
-
-text-shadow:
-0 0 25px rgba(255,0,0,.35);
-}
-
-.coming-title p{
-color:#8f7f7f;
-
-margin-top:15px;
-
-line-height:1.6;
-}
-
-.coming-grid{
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:16px;
-}
-
-
-/* =========================================================
-   COMING SOON SHAKING
-========================================================= */
-
-.coming-card{
-height:370px;
-
-position:relative;
-
-overflow:hidden;
-
-border-radius:20px;
-
-background:#0a0202;
-
-border:
-1px solid rgba(255,0,0,.25);
-
-animation:
-comingShake 2.8s ease-in-out infinite,
-comingGlow 2.2s ease-in-out infinite;
-}
-
-.coming-card:nth-child(2){
-animation-delay:.35s;
-}
-
-.coming-card:nth-child(3){
-animation-delay:.7s;
-}
-
-.coming-card:nth-child(4){
-animation-delay:1.05s;
-}
-
-@keyframes comingShake{
-
-0%,100%{
-transform:
-translateX(0)
-rotate(0deg);
-}
-
-10%{
-transform:
-translateX(-3px)
-rotate(-.6deg);
-}
-
-20%{
-transform:
-translateX(3px)
-rotate(.6deg);
-}
-
-30%{
-transform:
-translateX(-3px)
-rotate(-.5deg);
-}
-
-40%{
-transform:
-translateX(3px)
-rotate(.5deg);
-}
-
-50%{
-transform:
-translateX(0)
-rotate(0deg);
-}
-
-}
-
-@keyframes comingGlow{
-
-0%,100%{
-box-shadow:
-0 0 10px rgba(255,0,0,.08);
-}
-
-50%{
-box-shadow:
-0 0 35px rgba(255,0,0,.35),
-0 0 70px rgba(180,0,0,.12);
-}
-
-}
-
-.coming-card:hover{
-animation:none;
-
-transform:
-translateY(-9px)
-scale(1.02);
-
-border-color:#ff0000;
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.7),
-0 0 40px rgba(255,0,0,.35);
-}
-
-.coming-card img{
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-transition:.5s;
-}
-
-.coming-card:hover img{
-transform:scale(1.08);
-}
-
-.coming-card:after{
-content:"";
-
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(
-transparent 20%,
-rgba(0,0,0,.97)
-);
-}
-
-.coming-info{
-position:absolute;
-
-left:20px;
-right:20px;
-bottom:20px;
-
-z-index:2;
-}
-
-.coming-badge{
-display:inline-block;
-
-padding:7px 11px;
-
-border-radius:50px;
-
-font-size:9px;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-color:#fff;
-
-background:
-linear-gradient(
-135deg,
-#ff0000,
-#ff3b1f
-);
-
-box-shadow:
-0 0 18px rgba(255,0,0,.4);
-}
-
-.coming-info h3{
-font-size:24px;
-
-margin-top:12px;
-}
-
-.coming-info p{
-color:#ad9b9b;
-
-margin-top:6px;
-
-font-size:13px;
-}
-
-
-/* =========================================================
    CONTACT
 ========================================================= */
 
@@ -840,7 +836,7 @@ margin:15px 0 25px;
 ========================================================= */
 
 footer{
-padding:35px 20px;
+padding:35px 0;
 
 border-top:
 1px solid rgba(255,255,255,.08);
@@ -849,7 +845,7 @@ color:#756565;
 }
 
 .footer{
-width:min(1100px,100%);
+width:min(1100px,94%);
 
 margin:auto;
 
@@ -857,7 +853,7 @@ display:flex;
 
 justify-content:space-between;
 
-gap:20px;
+gap:15px;
 
 flex-wrap:wrap;
 }
@@ -877,6 +873,7 @@ z-index:3000;
 display:none;
 
 align-items:center;
+
 justify-content:center;
 
 padding:15px;
@@ -892,9 +889,11 @@ display:flex;
 }
 
 .modal{
-width:min(900px,96vw);
+width:900px;
 
-max-height:92vh;
+max-width:95vw;
+
+max-height:90vh;
 
 overflow:auto;
 
@@ -1095,6 +1094,7 @@ z-index:9999;
 display:none;
 
 align-items:center;
+
 justify-content:center;
 
 padding:12px;
@@ -1115,7 +1115,9 @@ display:flex;
 }
 
 .welcome-box{
-width:min(460px,94vw);
+width:460px;
+
+max-width:94vw;
 
 max-height:
 calc(100vh - 24px);
@@ -1211,6 +1213,7 @@ z-index:10000;
 display:none;
 
 align-items:center;
+
 justify-content:center;
 
 padding:15px;
@@ -1226,7 +1229,9 @@ display:flex;
 }
 
 .reward-box{
-width:min(560px,94vw);
+width:560px;
+
+max-width:95vw;
 
 max-height:
 calc(100vh - 30px);
@@ -1344,6 +1349,7 @@ z-index:11000;
 display:none;
 
 align-items:center;
+
 justify-content:center;
 
 padding:15px;
@@ -1364,7 +1370,9 @@ display:flex;
 }
 
 .thankyou-box{
-width:min(520px,94vw);
+width:520px;
+
+max-width:95vw;
 
 max-height:
 calc(100vh - 30px);
@@ -1488,21 +1496,38 @@ font-size:12px;
 color:#ff7777;
 
 margin-top:12px;
+
+animation:
+statusPulse 1.2s infinite;
+}
+
+@keyframes statusPulse{
+
+0%,100%{
+opacity:.5;
+}
+
+50%{
+opacity:1;
+}
+
 }
 
 
 /* =========================================================
    COMPACT DESKTOP
+   600px - 1100px
 ========================================================= */
 
-@media(max-width:1050px){
+@media(max-width:1100px){
 
 .nav{
-height:68px;
+width:96%;
 }
 
-.hero{
-padding-top:90px;
+.hero-inner,
+.wrap{
+width:96%;
 }
 
 .games,
@@ -1520,135 +1545,82 @@ height:340px;
 
 
 /* =========================================================
-   TABLET
+   SMALL PHONE
+   STILL 2 COLUMN GAMING LAYOUT
 ========================================================= */
 
-@media(max-width:760px){
+@media(max-width:700px){
+
+header{
+height:60px;
+}
 
 .nav{
-width:94%;
+height:60px;
 
-height:auto;
-
-min-height:68px;
-
-padding:7px 0;
-
-align-items:center;
+gap:8px;
 }
 
 .logo-img{
-width:100px;
-height:52px;
+width:72px;
+
+height:48px;
 }
 
 nav{
 gap:10px;
 
-justify-content:flex-end;
-}
-
-nav a{
-font-size:9px;
-}
-
-.hero-inner{
-grid-template-columns:1fr;
-
-text-align:center;
-}
-
-.hero p{
-margin-left:auto;
-margin-right:auto;
-}
-
-.actions{
-justify-content:center;
-}
-
-.hero-logo{
-width:280px;
-}
-
-.deals{
-grid-template-columns:1fr;
-}
-
-.features{
-grid-template-columns:1fr;
-}
-
-.payment{
-grid-template-columns:1fr;
-}
-
-.modal-grid{
-grid-template-columns:1fr;
-}
-
-.modal-image{
-height:230px;
-
-min-height:230px;
-}
-
-.modal-content{
-padding:25px;
-}
-
-.footer{
-justify-content:center;
-
-text-align:center;
-}
-
-}
-
-
-/* =========================================================
-   PHONE
-========================================================= */
-
-@media(max-width:520px){
-
-section{
-padding:
-65px 14px;
-}
-
-.nav{
-gap:8px;
-}
-
-.logo-img{
-width:85px;
-}
-
-nav{
-gap:7px;
+overflow:hidden;
 }
 
 nav a{
 font-size:7px;
 
-letter-spacing:.5px;
+letter-spacing:.6px;
 }
 
 .hero{
-padding:
-100px 14px
-50px;
+padding-top:60px;
+}
+
+.hero-inner{
+grid-template-columns:1fr 1fr;
+
+gap:15px;
 }
 
 .hero h1{
-font-size:48px;
+font-size:42px;
 
-letter-spacing:-3px;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:11px;
+
+line-height:1.5;
 }
 
 .hero-logo{
-width:220px;
+width:95%;
+}
+
+.btn{
+padding:11px 13px;
+
+font-size:10px;
+}
+
+section{
+padding:55px 0;
+}
+
+.wrap{
+width:94%;
+}
+
+h2{
+font-size:34px;
 }
 
 .games,
@@ -1661,21 +1633,23 @@ gap:10px;
 
 .game,
 .coming-card{
-height:250px;
+height:245px;
 
 border-radius:15px;
 }
 
 .game-info,
 .coming-info{
-left:12px;
-right:12px;
-bottom:12px;
+left:13px;
+right:13px;
+bottom:13px;
 }
 
 .game-info h3,
 .coming-info h3{
 font-size:17px;
+
+margin:5px 0;
 }
 
 .game-info p,
@@ -1684,35 +1658,116 @@ font-size:10px;
 }
 
 .game-info small{
-font-size:8px;
+font-size:7px;
 }
 
 .coming-badge{
-font-size:7px;
+font-size:6px;
 
-padding:6px 8px;
+padding:5px 7px;
+}
+
+.coming-title h2{
+font-size:42px;
+}
+
+.coming-title p{
+font-size:11px;
+}
+
+.deals{
+grid-template-columns:
+1.35fr .8fr;
+
+gap:10px;
 }
 
 .deal{
-padding:25px;
+padding:20px;
 
-min-height:auto;
+min-height:190px;
+}
+
+.deal h3{
+font-size:20px;
+}
+
+.deal p{
+font-size:10px;
+
+line-height:1.5;
+}
+
+.features{
+grid-template-columns:
+repeat(3,1fr);
+
+gap:8px;
+}
+
+.feature{
+padding:15px;
+}
+
+.feature span{
+font-size:22px;
+}
+
+.feature h3{
+font-size:12px;
+}
+
+.feature p{
+font-size:9px;
+}
+
+.payment{
+grid-template-columns:
+1fr 1fr;
+
+gap:10px;
 }
 
 .payment-card{
-padding:24px;
+padding:20px;
 }
 
-.contact{
-padding:45px 18px;
+.payment-card h3{
+font-size:20px;
 }
 
-.contact h2{
-font-size:35px;
+.line{
+font-size:10px;
+
+padding:11px 0;
+}
+
+.footer{
+font-size:9px;
+}
+
+.modal-grid{
+grid-template-columns:1fr;
+}
+
+.modal-image{
+height:200px;
+
+min-height:200px;
+}
+
+.modal-content{
+padding:20px;
+}
+
+.modal-content h2{
+font-size:30px;
 }
 
 .welcome-box{
-padding:25px 18px;
+width:94vw;
+
+padding:24px 18px;
 }
 
 .welcome-logo{
@@ -1723,45 +1778,31 @@ width:120px;
 font-size:30px;
 }
 
-.reward-box{
-padding:28px 18px;
-}
-
-.reward-box h2{
-font-size:30px;
-}
-
-.thankyou-box{
-padding:32px 20px;
-}
-
-.thankyou-box h2{
-font-size:35px;
-}
-
 }
 
 
 /* =========================================================
-   VERY SHORT SCREENS
+   VERY SHORT SCREEN
 ========================================================= */
 
 @media(max-height:650px){
 
 .welcome-box{
-padding:20px;
+padding:20px 22px;
 
-width:min(430px,94vw);
+width:430px;
+
+border-radius:20px;
 }
 
 .welcome-logo{
-width:100px;
+width:105px;
 
 margin-bottom:5px;
 }
 
 .welcome-box h2{
-font-size:27px;
+font-size:28px;
 
 margin-bottom:8px;
 }
@@ -1776,21 +1817,6 @@ margin-bottom:12px;
 
 .welcome-box .btn{
 padding:11px 15px;
-}
-
-}
-
-
-/* =========================================================
-   REDUCE ANIMATION FOR ACCESSIBILITY
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-*{
-animation-duration:.01ms !important;
-animation-iteration-count:1 !important;
-scroll-behavior:auto !important;
 }
 
 }
@@ -2131,6 +2157,155 @@ alt="PUBG Mobile">
 
 
 <!-- =====================================================
+     COMING SOON
+     NOW DIRECTLY UNDER THE GAMES
+===================================================== -->
+
+<section
+id="coming"
+class="coming-soon">
+
+<div class="wrap">
+
+<div class="coming-title">
+
+<div class="tag">
+DARK COMING SOON
+</div>
+
+<h2>
+COMING SOON
+</h2>
+
+<p>
+
+More games and digital entertainment
+are coming to DARK.
+
+Stay tuned for the next drop.
+
+</p>
+
+</div>
+
+<div class="coming-grid">
+
+
+<!-- APEX -->
+
+<div class="coming-card">
+
+<img
+src="images/IMG-20260822-WA0013.jpg"
+alt="Apex Legends">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Apex Legends
+</h3>
+
+<p>
+New content coming to DARK.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ARENA -->
+
+<div class="coming-card">
+
+<img
+src="images/MV5BYTQ2YTNlNWQtOWU2OC00MjM3LThlMjAtMjMzMmUwMTY5NmQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+alt="Arena Breakout">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Arena Breakout
+</h3>
+
+<p>
+New content coming to DARK.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NETFLIX -->
+
+<div class="coming-card">
+
+<img
+src="images/IMG-20260822-WA0010.jpg"
+alt="Netflix">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Netflix
+</h3>
+
+<p>
+Digital entertainment coming soon.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PRIME -->
+
+<div class="coming-card">
+
+<img
+src="images/IMG-20260822-WA0008.jpg"
+alt="Prime Video">
+
+<div class="coming-info">
+
+<span class="coming-badge">
+COMING SOON
+</span>
+
+<h3>
+Prime Video
+</h3>
+
+<p>
+Digital entertainment coming soon.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
      DEALS
 ===================================================== -->
 
@@ -2359,154 +2534,6 @@ How It Works
 
 
 <!-- =====================================================
-     COMING SOON
-===================================================== -->
-
-<section
-id="coming"
-class="coming-soon">
-
-<div class="wrap">
-
-<div class="coming-title">
-
-<div class="tag">
-DARK COMING SOON
-</div>
-
-<h2>
-COMING SOON
-</h2>
-
-<p>
-
-More games and digital entertainment
-are coming to DARK.
-
-Stay tuned for the next drop.
-
-</p>
-
-</div>
-
-<div class="coming-grid">
-
-
-<!-- APEX -->
-
-<div class="coming-card">
-
-<img
-src="images/IMG-20260822-WA0013.jpg"
-alt="Apex Legends">
-
-<div class="coming-info">
-
-<span class="coming-badge">
-COMING SOON
-</span>
-
-<h3>
-Apex Legends
-</h3>
-
-<p>
-New content coming to DARK.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ARENA -->
-
-<div class="coming-card">
-
-<img
-src="images/MV5BYTQ2YTNlNWQtOWU2OC00MjM3LThlMjAtMjMzMmUwMTY5NmQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-alt="Arena Breakout">
-
-<div class="coming-info">
-
-<span class="coming-badge">
-COMING SOON
-</span>
-
-<h3>
-Arena Breakout
-</h3>
-
-<p>
-New content coming to DARK.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- NETFLIX -->
-
-<div class="coming-card">
-
-<img
-src="images/IMG-20260822-WA0010.jpg"
-alt="Netflix">
-
-<div class="coming-info">
-
-<span class="coming-badge">
-COMING SOON
-</span>
-
-<h3>
-Netflix
-</h3>
-
-<p>
-Digital entertainment coming soon.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- PRIME -->
-
-<div class="coming-card">
-
-<img
-src="images/IMG-20260822-WA0008.jpg"
-alt="Prime Video">
-
-<div class="coming-info">
-
-<span class="coming-badge">
-COMING SOON
-</span>
-
-<h3>
-Prime Video
-</h3>
-
-<p>
-Digital entertainment coming soon.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
      CONTACT
 ===================================================== -->
 
@@ -2626,13 +2653,20 @@ id="productName">
 id="productType">
 </p>
 
-<div id="packages"></div>
+<div id="packages">
+</div>
+
+
+<!-- GAMER ID -->
 
 <input
 class="field"
 id="player"
 placeholder="Enter Gamer ID / Username"
 autocomplete="off">
+
+
+<!-- TRANSACTION ID -->
 
 <label
 class="transaction-label"
@@ -2647,6 +2681,9 @@ class="field"
 id="transactionId"
 placeholder="Enter your MMG Transaction ID"
 autocomplete="off">
+
+
+<!-- PROGRESS -->
 
 <div
 class="progress-box"
@@ -2678,6 +2715,7 @@ id="progressFill">
 </div>
 
 </div>
+
 
 <button
 class="btn primary"
@@ -2847,7 +2885,7 @@ CONTINUE TO WHATSAPP →
 class="whatsapp-status"
 id="whatsappStatus">
 
-Tap the button above to continue.
+Opening WhatsApp automatically...
 
 </div>
 
@@ -2859,7 +2897,7 @@ Tap the button above to continue.
 <script>
 
 /* =========================================================
-   DARK STORE VARIABLES
+   VARIABLES
 ========================================================= */
 
 let currentGame="";
@@ -2875,69 +2913,53 @@ function checkStoreHours(){
 
 const now=new Date();
 
-const hour=now.getHours();
-const minute=now.getMinutes();
-
 const currentMinutes=
-(hour*60)+minute;
+now.getHours()*60+
+now.getMinutes();
 
 const openingTime=8*60;
 const closingTime=21*60;
 
 const popup=
-document.getElementById(
-"welcomePopup"
-);
+document.getElementById("welcomePopup");
 
 const title=
-document.getElementById(
-"welcomeTitle"
-);
+document.getElementById("welcomeTitle");
 
 const message=
-document.getElementById(
-"welcomeMessage"
-);
+document.getElementById("welcomeMessage");
 
 const tag=
-document.getElementById(
-"welcomeTag"
-);
-
+document.getElementById("welcomeTag");
 
 if(currentMinutes<openingTime){
 
-tag.textContent=
-"DARK STORE • CLOSED";
+tag.textContent="DARK STORE • CLOSED";
 
 title.innerHTML=
 "WE'RE CLOSED<br>RIGHT NOW";
 
 message.textContent=
-"Thanks for visiting DARK. Our store opens at 8:00 AM. You can still browse the website, and we'll be ready to help you when we're open.";
+"Thanks for visiting DARK. Our store opens at 8:00 AM. You can still browse the website.";
 
 popup.classList.add("open");
 
 return;
-
 }
-
 
 if(currentMinutes>=closingTime){
 
-tag.textContent=
-"DARK STORE • CLOSED";
+tag.textContent="DARK STORE • CLOSED";
 
 title.innerHTML=
 "WE'RE CLOSED<br>RIGHT NOW";
 
 message.textContent=
-"Thanks for visiting DARK. Our store is closed for tonight. You can still browse the website and place your request. We'll respond when we're back.";
+"Thanks for visiting DARK. Our store is closed for tonight. You can still browse the website.";
 
 popup.classList.add("open");
 
 return;
-
 }
 
 popup.classList.remove("open");
@@ -2946,7 +2968,7 @@ popup.classList.remove("open");
 
 
 /* =========================================================
-   CLOSE WELCOME
+   WELCOME
 ========================================================= */
 
 function closeWelcome(){
@@ -2957,18 +2979,9 @@ document
 
 }
 
-
-/* =========================================================
-   RUN TIME CHECK
-========================================================= */
-
 window.addEventListener(
 "load",
-function(){
-
-checkStoreHours();
-
-}
+checkStoreHours
 );
 
 
@@ -3000,24 +3013,17 @@ document.getElementById(
 "productImage"
 ).src=image;
 
-let box=
-document.getElementById(
-"packages"
-);
+const box=
+document.getElementById("packages");
 
 box.innerHTML="";
 
+packages.forEach(function(p){
 
-packages.forEach(
-function(p){
+const button=
+document.createElement("button");
 
-let button=
-document.createElement(
-"button"
-);
-
-button.className=
-"package";
+button.className="package";
 
 button.innerHTML=
 "<span>"+
@@ -3026,53 +3032,36 @@ p[0]+
 p[1]+
 "</strong>";
 
-button.onclick=
-function(){
+button.onclick=function(){
 
 document
 .querySelectorAll(".package")
-.forEach(
-function(x){
+.forEach(function(x){
 
-x.classList.remove(
-"selected"
-);
+x.classList.remove("selected");
 
 });
 
-button.classList.add(
-"selected"
-);
+button.classList.add("selected");
 
 currentPackage=
-p[0]+
-" — GYD $"+
-p[1];
+p[0]+" — GYD $"+p[1];
 
 };
 
-box.appendChild(
-button
-);
+box.appendChild(button);
 
 });
 
+document.getElementById("player").value="";
 
-document.getElementById(
-"player"
-).value="";
+document.getElementById("transactionId").value="";
 
-document.getElementById(
-"transactionId"
-).value="";
+document.getElementById("progressBox")
+.style.display="none";
 
-document.getElementById(
-"progressBox"
-).style.display="none";
-
-document.getElementById(
-"modal"
-).classList.add("open");
+document.getElementById("modal")
+.classList.add("open");
 
 document.body.style.overflow="hidden";
 
@@ -3085,9 +3074,8 @@ document.body.style.overflow="hidden";
 
 function closeProduct(){
 
-document.getElementById(
-"modal"
-).classList.remove("open");
+document.getElementById("modal")
+.classList.remove("open");
 
 document.body.style.overflow="";
 
@@ -3098,11 +3086,9 @@ document.body.style.overflow="";
    PURCHASE COUNT
 ========================================================= */
 
-function getPurchaseCount(
-player
-){
+function getPurchaseCount(player){
 
-let key=
+const key=
 "DARK_PURCHASES_"+
 player.toLowerCase();
 
@@ -3112,17 +3098,12 @@ localStorage.getItem(key)||"0"
 
 }
 
-
-/* =========================================================
-   SAVE COUNT
-========================================================= */
-
 function savePurchaseCount(
 player,
 count
 ){
 
-let key=
+const key=
 "DARK_PURCHASES_"+
 player.toLowerCase();
 
@@ -3138,9 +3119,7 @@ count
    UPDATE PROGRESS
 ========================================================= */
 
-function updateProgress(
-player
-){
+function updateProgress(player){
 
 if(!player){
 
@@ -3152,12 +3131,10 @@ return;
 
 }
 
-let count=
-getPurchaseCount(
-player
-);
+const count=
+getPurchaseCount(player);
 
-let progress=
+const progress=
 Math.min(
 (count/5)*100,
 100
@@ -3170,20 +3147,18 @@ document.getElementById(
 document.getElementById(
 "purchaseCount"
 ).textContent=
-count+
-" / 5";
+count+" / 5";
 
 document.getElementById(
 "progressFill"
 ).style.width=
-progress+
-"%";
+progress+"%";
 
 }
 
 
 /* =========================================================
-   LIVE PLAYER COUNTER
+   LIVE COUNTER
 ========================================================= */
 
 document.getElementById(
@@ -3206,20 +3181,20 @@ this.value.trim()
 
 function sendOrder(){
 
-let player=
+const player=
 document
 .getElementById("player")
 .value
 .trim();
 
-let transactionId=
+const transactionId=
 document
 .getElementById("transactionId")
 .value
 .trim();
 
 
-/* PACKAGE CHECK */
+/* PACKAGE */
 
 if(!currentPackage){
 
@@ -3232,7 +3207,7 @@ return;
 }
 
 
-/* GAMER ID CHECK */
+/* GAMER ID */
 
 if(!player){
 
@@ -3245,7 +3220,7 @@ return;
 }
 
 
-/* MMG TRANSACTION CHECK */
+/* TRANSACTION */
 
 if(!transactionId){
 
@@ -3258,16 +3233,12 @@ return;
 }
 
 
-/* =====================================================
-   PURCHASE COUNT
-===================================================== */
+/* COUNT */
 
-let oldCount=
-getPurchaseCount(
-player
-);
+const oldCount=
+getPurchaseCount(player);
 
-let newCount=
+const newCount=
 oldCount+1;
 
 savePurchaseCount(
@@ -3275,14 +3246,10 @@ player,
 newCount
 );
 
-updateProgress(
-player
-);
+updateProgress(player);
 
 
-/* =====================================================
-   REWARD MESSAGE
-===================================================== */
+/* REWARD */
 
 let rewardMessage="";
 
@@ -3296,31 +3263,21 @@ rewardMessage=
 }
 
 
-/* =====================================================
-   WHATSAPP MESSAGE
-===================================================== */
+/* WHATSAPP MESSAGE */
 
-let message=
+const message=
 "Hi DARK! I want to place an order.%0A%0A"+
 "Game: "+
-encodeURIComponent(
-currentGame
-)+
+encodeURIComponent(currentGame)+
 "%0A"+
 "Package: "+
-encodeURIComponent(
-currentPackage
-)+
+encodeURIComponent(currentPackage)+
 "%0A"+
 "Gamer ID/Username: "+
-encodeURIComponent(
-player
-)+
+encodeURIComponent(player)+
 "%0A"+
 "MMG Transaction ID: "+
-encodeURIComponent(
-transactionId
-)+
+encodeURIComponent(transactionId)+
 "%0A"+
 "DARK Purchase Count: "+
 newCount+
@@ -3328,18 +3285,14 @@ newCount+
 rewardMessage;
 
 
-/* =====================================================
-   CREATE WHATSAPP URL
-===================================================== */
+/* URL */
 
 pendingWhatsAppUrl=
 "https://wa.me/13436555995?text="+
 message;
 
 
-/* =====================================================
-   CLOSE PRODUCT
-===================================================== */
+/* CLOSE PRODUCT */
 
 closeProduct();
 
@@ -3349,55 +3302,38 @@ closeProduct();
 ===================================================== */
 
 document
-.getElementById(
-"thankyouPopup"
-)
+.getElementById("thankyouPopup")
 .classList.add("open");
 
 
 /* =====================================================
-   UPDATE THANK YOU STATUS
+   WAIT THEN OPEN WHATSAPP
 ===================================================== */
 
-document.getElementById(
-"whatsappStatus"
-).textContent=
-"Tap CONTINUE TO WHATSAPP when you're ready.";
+setTimeout(function(){
+
+if(pendingWhatsAppUrl){
+
+continueToWhatsApp();
+
+}
+
+},3000);
 
 
 /* =====================================================
-   SHOW REWARD AFTER THANK YOU
+   SHOW REWARD LATER
 ===================================================== */
 
 if(newCount>=5){
 
-setTimeout(
-function(){
-
-/*
-   Only show reward if
-   thank-you popup is still open.
-*/
-
-if(
-document
-.getElementById(
-"thankyouPopup"
-)
-.classList.contains("open")
-){
+setTimeout(function(){
 
 document
-.getElementById(
-"rewardPopup"
-)
+.getElementById("rewardPopup")
 .classList.add("open");
 
-}
-
-},
-3500
-);
+},6500);
 
 }
 
@@ -3405,7 +3341,7 @@ document
 
 
 /* =========================================================
-   CONTINUE TO WHATSAPP
+   WHATSAPP
 ========================================================= */
 
 function continueToWhatsApp(){
@@ -3416,48 +3352,17 @@ return;
 
 }
 
-
-/* STATUS */
-
 document.getElementById(
 "whatsappStatus"
 ).textContent=
 "Opening WhatsApp...";
 
-
-/* =====================================================
-   OPEN WHATSAPP
-===================================================== */
-
-window.open(
-pendingWhatsAppUrl,
-"_blank"
-);
-
-
-/* =====================================================
-   CLEAR URL AFTER OPEN
-===================================================== */
+const url=
+pendingWhatsAppUrl;
 
 pendingWhatsAppUrl="";
 
-
-/* =====================================================
-   CLOSE THANK YOU
-===================================================== */
-
-setTimeout(
-function(){
-
-document
-.getElementById(
-"thankyouPopup"
-)
-.classList.remove("open");
-
-},
-400
-);
+window.location.href=url;
 
 }
 
@@ -3469,9 +3374,7 @@ document
 function closeThankYou(){
 
 document
-.getElementById(
-"thankyouPopup"
-)
+.getElementById("thankyouPopup")
 .classList.remove("open");
 
 }
@@ -3484,22 +3387,19 @@ document
 function closeReward(){
 
 document
-.getElementById(
-"rewardPopup"
-)
+.getElementById("rewardPopup")
 .classList.remove("open");
 
 }
 
 
 /* =========================================================
-   CLICK OUTSIDE PRODUCT
+   OUTSIDE MODAL
 ========================================================= */
 
 document
 .getElementById("modal")
-.onclick=
-function(e){
+.onclick=function(e){
 
 if(e.target===this){
 
@@ -3511,13 +3411,12 @@ closeProduct();
 
 
 /* =========================================================
-   CLICK OUTSIDE REWARD
+   OUTSIDE REWARD
 ========================================================= */
 
 document
 .getElementById("rewardPopup")
-.onclick=
-function(e){
+.onclick=function(e){
 
 if(e.target===this){
 
@@ -3529,13 +3428,12 @@ closeReward();
 
 
 /* =========================================================
-   CLICK OUTSIDE THANK YOU
+   OUTSIDE THANK YOU
 ========================================================= */
 
 document
 .getElementById("thankyouPopup")
-.onclick=
-function(e){
+.onclick=function(e){
 
 if(e.target===this){
 
@@ -3548,4 +3446,4 @@ closeThankYou();
 </script>
 
 </body>
-   </html>
+</html>
