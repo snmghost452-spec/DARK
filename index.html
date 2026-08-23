@@ -20,7 +20,7 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 background:#030406;
 color:#fff;
-overflow-x:hidden;
+overflow-x:auto;
 }
 
 body:before{
@@ -53,7 +53,9 @@ button,input{
 font:inherit
 }
 
-/* HEADER */
+/* =========================================
+   HEADER
+========================================= */
 
 header{
 position:fixed;
@@ -67,7 +69,8 @@ border-bottom:1px solid rgba(0,170,255,.18);
 }
 
 .nav{
-width:min(1200px,92%);
+width:1200px;
+min-width:1100px;
 height:78px;
 margin:auto;
 display:flex;
@@ -92,6 +95,7 @@ font-size:12px;
 font-weight:900;
 letter-spacing:1px;
 color:#b4becb;
+white-space:nowrap;
 }
 
 nav a:hover{
@@ -101,14 +105,11 @@ text-shadow:0 0 15px #008cff;
 
 .menu{
 display:none;
-background:none;
-border:1px solid #123;
-color:#fff;
-padding:10px;
-border-radius:10px;
 }
 
-/* HERO */
+/* =========================================
+   HERO
+========================================= */
 
 .hero{
 min-height:100vh;
@@ -118,7 +119,8 @@ align-items:center;
 }
 
 .hero-inner{
-width:min(1200px,92%);
+width:1200px;
+min-width:1100px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -135,7 +137,7 @@ margin-bottom:15px;
 }
 
 .hero h1{
-font-size:clamp(55px,8vw,105px);
+font-size:105px;
 line-height:.85;
 letter-spacing:-6px;
 }
@@ -187,10 +189,12 @@ border:1px solid rgba(255,255,255,.15);
 color:#fff;
 }
 
-/* HERO LOGO */
+/* =========================================
+   HERO LOGO
+========================================= */
 
 .hero-logo{
-width:min(450px,90%);
+width:450px;
 display:block;
 margin:auto;
 filter:
@@ -204,19 +208,22 @@ animation:float 4s ease-in-out infinite;
 50%{transform:translateY(-14px)}
 }
 
-/* SECTIONS */
+/* =========================================
+   SECTIONS
+========================================= */
 
 section{
 padding:100px 0;
 }
 
 .wrap{
-width:min(1200px,92%);
+width:1200px;
+min-width:1100px;
 margin:auto;
 }
 
 h2{
-font-size:clamp(34px,5vw,58px);
+font-size:58px;
 margin-bottom:10px;
 }
 
@@ -226,7 +233,9 @@ line-height:1.6;
 margin-bottom:35px;
 }
 
-/* GAMES */
+/* =========================================
+   GAMES
+========================================= */
 
 .games{
 display:grid;
@@ -298,7 +307,9 @@ margin:8px 0;
 color:#aab4c0;
 }
 
-/* DEALS */
+/* =========================================
+   DEALS
+========================================= */
 
 .deals{
 display:grid;
@@ -325,7 +336,9 @@ line-height:1.7;
 margin-bottom:25px;
 }
 
-/* FEATURES */
+/* =========================================
+   FEATURES
+========================================= */
 
 .features{
 display:grid;
@@ -353,7 +366,9 @@ color:#7e8b9b;
 line-height:1.6;
 }
 
-/* PAYMENT */
+/* =========================================
+   PAYMENT
+========================================= */
 
 .payment{
 display:grid;
@@ -385,39 +400,9 @@ border-bottom:1px solid rgba(255,255,255,.07);
 color:#8290a0;
 }
 
-/* CONTACT */
-
-.contact{
-text-align:center;
-padding:70px 30px;
-border-radius:30px;
-background:
-linear-gradient(rgba(3,7,12,.8),rgba(3,7,12,.9)),
-url("1787436314905.png") center/cover;
-border:1px solid rgba(0,170,255,.2);
-}
-
-.contact p{
-color:#8794a4;
-margin:15px 0 25px;
-}
-
-/* FOOTER */
-
-footer{
-padding:35px 0;
-border-top:1px solid rgba(255,255,255,.08);
-color:#667384;
-}
-
-.footer{
-width:min(1200px,92%);
-margin:auto;
-display:flex;
-justify-content:space-between;
-}
-
-/* COMING SOON */
+/* =========================================
+   COMING SOON
+========================================= */
 
 .coming-soon{
 padding-top:90px;
@@ -429,12 +414,8 @@ text-align:center;
 margin-bottom:45px;
 }
 
-.coming-title .tag{
-margin-bottom:12px;
-}
-
 .coming-title h2{
-font-size:clamp(38px,6vw,65px);
+font-size:65px;
 text-shadow:0 0 25px rgba(0,170,255,.35);
 }
 
@@ -444,11 +425,20 @@ margin-top:15px;
 line-height:1.6;
 }
 
+/*
+   FOUR CARDS ALWAYS SIDE-BY-SIDE
+*/
+
 .coming-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:18px;
+min-width:1100px;
 }
+
+/*
+   CONTINUOUS SHAKE
+*/
 
 .coming-card{
 height:390px;
@@ -456,16 +446,76 @@ position:relative;
 overflow:hidden;
 border-radius:22px;
 background:#080c11;
-border:1px solid rgba(0,170,255,.16);
+border:1px solid rgba(0,170,255,.22);
 transition:.35s;
+
+animation:
+comingShake 2.8s ease-in-out infinite,
+comingGlow 2.2s ease-in-out infinite;
+}
+
+.coming-card:nth-child(2){
+animation-delay:.35s;
+}
+
+.coming-card:nth-child(3){
+animation-delay:.7s;
+}
+
+.coming-card:nth-child(4){
+animation-delay:1.05s;
+}
+
+@keyframes comingShake{
+
+0%,100%{
+transform:translateX(0) rotate(0deg);
+}
+
+10%{
+transform:translateX(-3px) rotate(-.6deg);
+}
+
+20%{
+transform:translateX(3px) rotate(.6deg);
+}
+
+30%{
+transform:translateX(-3px) rotate(-.5deg);
+}
+
+40%{
+transform:translateX(3px) rotate(.5deg);
+}
+
+50%{
+transform:translateX(0) rotate(0deg);
+}
+
+}
+
+@keyframes comingGlow{
+
+0%,100%{
+box-shadow:
+0 0 10px rgba(0,170,255,.08);
+}
+
+50%{
+box-shadow:
+0 0 35px rgba(0,170,255,.35),
+0 0 70px rgba(0,140,255,.12);
+}
+
 }
 
 .coming-card:hover{
-transform:translateY(-9px);
+animation:none;
+transform:translateY(-9px) scale(1.02);
 border-color:#00aaff;
 box-shadow:
 0 20px 60px rgba(0,0,0,.7),
-0 0 35px rgba(0,170,255,.2);
+0 0 40px rgba(0,170,255,.35);
 }
 
 .coming-card img{
@@ -521,7 +571,46 @@ margin-top:6px;
 font-size:13px;
 }
 
-/* MODAL */
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact{
+text-align:center;
+padding:70px 30px;
+border-radius:30px;
+background:
+linear-gradient(rgba(3,7,12,.8),rgba(3,7,12,.9)),
+url("1787436314905.png") center/cover;
+border:1px solid rgba(0,170,255,.2);
+}
+
+.contact p{
+color:#8794a4;
+margin:15px 0 25px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+padding:35px 0;
+border-top:1px solid rgba(255,255,255,.08);
+color:#667384;
+}
+
+.footer{
+width:1200px;
+min-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+}
+
+/* =========================================
+   PRODUCT MODAL
+========================================= */
 
 .modal-bg{
 position:fixed;
@@ -540,7 +629,7 @@ display:flex;
 }
 
 .modal{
-width:min(950px,100%);
+width:950px;
 max-height:90vh;
 overflow:auto;
 background:#080c11;
@@ -615,7 +704,9 @@ outline:none;
 border-color:#00aaff;
 }
 
-/* WELCOME / NIGHT POPUP */
+/* =========================================
+   NIGHT POPUP
+========================================= */
 
 .welcome-bg{
 position:fixed;
@@ -636,7 +727,7 @@ display:flex;
 }
 
 .welcome-box{
-width:min(520px,95%);
+width:520px;
 padding:45px 30px;
 text-align:center;
 border-radius:30px;
@@ -666,15 +757,10 @@ transform:scale(1) translateY(0);
 
 .welcome-logo{
 width:190px;
-max-width:80%;
 filter:
 drop-shadow(0 0 15px #008cff)
 drop-shadow(0 0 35px rgba(0,140,255,.7));
 margin-bottom:20px;
-}
-
-.welcome-box .tag{
-margin-bottom:10px;
 }
 
 .welcome-box h2{
@@ -688,7 +774,9 @@ line-height:1.7;
 margin-bottom:25px;
 }
 
-/* PURCHASE PROGRESS */
+/* =========================================
+   PURCHASE PROGRESS
+========================================= */
 
 .progress-box{
 margin:20px 0;
@@ -720,7 +808,9 @@ box-shadow:0 0 15px #00aaff;
 transition:.5s;
 }
 
-/* REWARD POPUP */
+/* =========================================
+   REWARD POPUP
+========================================= */
 
 .reward-bg{
 position:fixed;
@@ -739,7 +829,7 @@ display:flex;
 }
 
 .reward-box{
-width:min(600px,95%);
+width:600px;
 text-align:center;
 padding:40px 25px;
 border-radius:30px;
@@ -804,101 +894,129 @@ border:1px solid rgba(0,170,255,.15);
 color:#00d9ff;
 }
 
-/* MOBILE */
+/* =========================================
+   THANK YOU POPUP
+========================================= */
 
-@media(max-width:950px){
-
-.hero-inner{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.hero p{
-margin-left:auto;
-margin-right:auto;
-}
-
-.actions{
-justify-content:center;
-}
-
-.games{
-grid-template-columns:repeat(2,1fr);
-}
-
-.coming-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.payment,
-.deals{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:700px){
-
-nav{
+.thankyou-bg{
+position:fixed;
+inset:0;
+z-index:11000;
 display:none;
-position:absolute;
-top:78px;
-left:0;
-right:0;
-background:#030609;
-padding:25px;
-flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:
+radial-gradient(
+circle at center,
+rgba(0,170,255,.22),
+transparent 45%
+),
+rgba(0,0,0,.9);
+backdrop-filter:blur(18px);
 }
 
-nav.open{
+.thankyou-bg.open{
 display:flex;
 }
 
-.menu{
-display:block;
+.thankyou-box{
+width:560px;
+padding:50px 35px;
+text-align:center;
+border-radius:30px;
+background:
+linear-gradient(
+145deg,
+#07131d,
+#02070c
+);
+border:1px solid #00d9ff;
+box-shadow:
+0 0 60px rgba(0,170,255,.35),
+0 30px 100px #000;
+animation:thankYouIn .7s ease;
 }
 
-.hero{
-min-height:auto;
-padding-top:130px;
-padding-bottom:70px;
+@keyframes thankYouIn{
+
+0%{
+opacity:0;
+transform:scale(.5) translateY(50px);
 }
 
-.hero-logo{
-max-width:330px;
+60%{
+transform:scale(1.05);
 }
 
-.games,
-.features,
-.coming-grid{
-grid-template-columns:1fr;
+100%{
+opacity:1;
+transform:scale(1) translateY(0);
 }
 
-.game{
-height:430px;
 }
 
-.coming-card{
-height:430px;
+.thankyou-icon{
+font-size:75px;
+margin-bottom:15px;
+animation:thankIcon 1.2s ease infinite;
 }
 
-.modal-grid{
-grid-template-columns:1fr;
+@keyframes thankIcon{
+
+0%,100%{
+transform:translateY(0) rotate(0deg);
 }
 
-.modal-image{
-height:280px;
-min-height:0;
+50%{
+transform:translateY(-8px) rotate(5deg);
 }
 
-.footer{
-flex-direction:column;
-gap:10px;
 }
 
-.welcome-box h2,
-.reward-box h2{
-font-size:32px;
+.thankyou-box .tag{
+margin-bottom:12px;
+}
+
+.thankyou-box h2{
+font-size:45px;
+color:#00d9ff;
+text-shadow:0 0 25px #008cff;
+margin-bottom:18px;
+}
+
+.thankyou-box p{
+color:#a7b5c4;
+font-size:16px;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.order-sent{
+padding:14px;
+border-radius:12px;
+background:rgba(0,170,255,.08);
+border:1px solid rgba(0,170,255,.2);
+color:#dcecff;
+margin-bottom:25px;
+}
+
+/* =========================================
+   ALWAYS DESKTOP MODE
+========================================= */
+
+.page{
+min-width:1100px;
+}
+
+@media(max-width:1100px){
+
+body{
+overflow-x:auto;
+}
+
+header{
+min-width:1100px;
 }
 
 }
@@ -908,7 +1026,12 @@ font-size:32px;
 
 <body>
 
-<!-- NIGHT-TIME POPUP -->
+<div class="page">
+
+<!-- =========================================
+     NIGHT POPUP
+========================================= -->
+
 <div class="welcome-bg" id="welcomePopup">
 
 <div class="welcome-box">
@@ -936,13 +1059,19 @@ quickly and easily.
 class="btn primary"
 style="width:100%"
 onclick="closeWelcome()">
+
 ENTER DARK STORE →
+
 </button>
 
 </div>
 
 </div>
 
+
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header>
 
@@ -957,7 +1086,7 @@ alt="DARK Logo">
 
 </a>
 
-<nav id="nav">
+<nav>
 
 <a href="#home">HOME</a>
 <a href="#games">GAMING</a>
@@ -968,20 +1097,14 @@ alt="DARK Logo">
 
 </nav>
 
-<button
-class="menu"
-onclick="document.getElementById('nav').classList.toggle('open')">
-
-☰
-
-</button>
-
 </div>
 
 </header>
 
 
-<!-- HERO -->
+<!-- =========================================
+     HERO
+========================================= -->
 
 <section class="hero" id="home">
 
@@ -1009,25 +1132,28 @@ through DARK.
 <a
 href="#games"
 class="btn primary">
+
 EXPLORE GAMING →
+
 </a>
 
 <a
 href="#contact"
 class="btn secondary">
+
 CONTACT DARK
+
 </a>
 
 </div>
 
 </div>
 
-
 <div>
 
 <img
 class="hero-logo"
-src="1787436314905.png"
+src="1787436309105.png"
 alt="DARK">
 
 </div>
@@ -1037,7 +1163,9 @@ alt="DARK">
 </section>
 
 
-<!-- GAMES -->
+<!-- =========================================
+     GAMES
+========================================= -->
 
 <section id="games">
 
@@ -1054,7 +1182,6 @@ Choose Your Game
 <p class="desc">
 Tap a game to see its exact packages and start your order.
 </p>
-
 
 <div class="games">
 
@@ -1082,17 +1209,11 @@ onclick="openProduct(
 
 <div class="game-info">
 
-<small>
-ROBLOX
-</small>
+<small>ROBLOX</small>
 
-<h3>
-Robux
-</h3>
+<h3>Robux</h3>
 
-<p>
-Tap to view packages
-</p>
+<p>Tap to view packages</p>
 
 </div>
 
@@ -1119,17 +1240,11 @@ onclick="openProduct(
 
 <div class="game-info">
 
-<small>
-FREE FIRE
-</small>
+<small>FREE FIRE</small>
 
-<h3>
-Diamonds
-</h3>
+<h3>Diamonds</h3>
 
-<p>
-Tap to view packages
-</p>
+<p>Tap to view packages</p>
 
 </div>
 
@@ -1157,17 +1272,11 @@ onclick="openProduct(
 
 <div class="game-info">
 
-<small>
-CALL OF DUTY
-</small>
+<small>CALL OF DUTY</small>
 
-<h3>
-CP
-</h3>
+<h3>CP</h3>
 
-<p>
-Tap to view packages
-</p>
+<p>Tap to view packages</p>
 
 </div>
 
@@ -1195,22 +1304,15 @@ onclick="openProduct(
 
 <div class="game-info">
 
-<small>
-PUBG MOBILE
-</small>
+<small>PUBG MOBILE</small>
 
-<h3>
-UC
-</h3>
+<h3>UC</h3>
 
-<p>
-Tap to view packages
-</p>
+<p>Tap to view packages</p>
 
 </div>
 
 </div>
-
 
 </div>
 
@@ -1219,7 +1321,9 @@ Tap to view packages
 </section>
 
 
-<!-- DEALS -->
+<!-- =========================================
+     DEALS
+========================================= -->
 
 <section id="deals">
 
@@ -1235,7 +1339,6 @@ Deals & Drops
 
 <div class="deals">
 
-
 <div class="deal">
 
 <h3>
@@ -1250,11 +1353,12 @@ started in a few taps.
 <a
 href="#games"
 class="btn primary">
+
 SHOP NOW
+
 </a>
 
 </div>
-
 
 <div class="deal">
 
@@ -1276,7 +1380,9 @@ and unlock a free gaming top-up reward.
 </section>
 
 
-<!-- FEATURES -->
+<!-- =========================================
+     FEATURES
+========================================= -->
 
 <section>
 
@@ -1292,14 +1398,11 @@ Built For Gamers.
 
 <div class="features">
 
-
 <div class="feature">
 
 <span>⚡</span>
 
-<h3>
-Fast Ordering
-</h3>
+<h3>Fast Ordering</h3>
 
 <p>
 Choose your game and package and send your order request.
@@ -1307,14 +1410,11 @@ Choose your game and package and send your order request.
 
 </div>
 
-
 <div class="feature">
 
 <span>🛡️</span>
 
-<h3>
-Clear Payment
-</h3>
+<h3>Clear Payment</h3>
 
 <p>
 Payment information is displayed clearly before you order.
@@ -1322,21 +1422,17 @@ Payment information is displayed clearly before you order.
 
 </div>
 
-
 <div class="feature">
 
 <span>🎮</span>
 
-<h3>
-Gaming Focused
-</h3>
+<h3>Gaming Focused</h3>
 
 <p>
 DARK is built around gaming top-ups and digital products.
 </p>
 
 </div>
-
 
 </div>
 
@@ -1345,7 +1441,9 @@ DARK is built around gaming top-ups and digital products.
 </section>
 
 
-<!-- PAYMENT -->
+<!-- =========================================
+     PAYMENT
+========================================= -->
 
 <section id="payment">
 
@@ -1361,109 +1459,49 @@ Complete Your Order
 
 <div class="payment">
 
+<div class="payment-card">
+
+<h3>MMG</h3>
+
+<div class="line">
+<span>Number</span>
+<strong>762-6433</strong>
+</div>
+
+<div class="line">
+<span>Merchant</span>
+<strong>CASSIA</strong>
+</div>
+
+</div>
 
 <div class="payment-card">
 
-<h3>
-MMG
-</h3>
+<h3>How It Works</h3>
 
 <div class="line">
-
-<span>
-Number
-</span>
-
-<strong>
-762-6433
-</strong>
-
+<span>01</span>
+<strong>Choose game</strong>
 </div>
-
 
 <div class="line">
-
-<span>
-Merchant
-</span>
-
-<strong>
-CASSIA
-</strong>
-
+<span>02</span>
+<strong>Choose package</strong>
 </div>
-
-</div>
-
-
-<div class="payment-card">
-
-<h3>
-How It Works
-</h3>
 
 <div class="line">
-
-<span>
-01
-</span>
-
-<strong>
-Choose game
-</strong>
-
+<span>03</span>
+<strong>Enter Gamer ID</strong>
 </div>
 
-
 <div class="line">
-
-<span>
-02
-</span>
-
-<strong>
-Choose package
-</strong>
-
+<span>04</span>
+<strong>Send order</strong>
 </div>
 
-
 <div class="line">
-
-<span>
-03
-</span>
-
-<strong>
-Enter Gamer ID
-</strong>
-
-</div>
-
-
-<div class="line">
-
-<span>
-04
-</span>
-
-<strong>
-Send order
-</strong>
-
-</div>
-
-
-<div class="line">
-
-<span>
-05
-</span>
-
-<strong>
-Every 5 purchases = FREE
-</strong>
-
+<span>05</span>
+<strong>Every 5 purchases = FREE</strong>
 </div>
 
 </div>
@@ -1475,7 +1513,9 @@ Every 5 purchases = FREE
 </section>
 
 
-<!-- COMING SOON -->
+<!-- =========================================
+     COMING SOON
+========================================= -->
 
 <section id="coming" class="coming-soon">
 
@@ -1609,7 +1649,6 @@ Digital entertainment coming soon.
 
 </div>
 
-
 </div>
 
 </div>
@@ -1617,7 +1656,9 @@ Digital entertainment coming soon.
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================================
+     CONTACT
+========================================= -->
 
 <section id="contact">
 
@@ -1641,7 +1682,6 @@ Message DARK to place your gaming order.
 class="actions"
 style="justify-content:center">
 
-
 <a
 class="btn primary"
 href="https://wa.me/13436555995"
@@ -1650,7 +1690,6 @@ target="_blank">
 WHATSAPP
 
 </a>
-
 
 <a
 class="btn secondary"
@@ -1661,7 +1700,6 @@ SECOND CONTACT
 
 </a>
 
-
 </div>
 
 </div>
@@ -1671,13 +1709,15 @@ SECOND CONTACT
 </section>
 
 
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer>
 
 <div class="footer">
 
-<strong>
-DARK
-</strong>
+<strong>DARK</strong>
 
 <span>
 Digital Gaming Store • Guyana
@@ -1691,8 +1731,12 @@ Digital Gaming Store • Guyana
 
 </footer>
 
+</div>
 
-<!-- PRODUCT WINDOW -->
+
+<!-- =========================================
+     PRODUCT WINDOW
+========================================= -->
 
 <div
 class="modal-bg"
@@ -1702,13 +1746,11 @@ id="modal">
 
 <div class="modal-grid">
 
-
 <div class="modal-image">
 
 <img id="productImage">
 
 </div>
-
 
 <div class="modal-content">
 
@@ -1720,7 +1762,6 @@ onclick="closeProduct()">
 
 </button>
 
-
 <div class="tag">
 DARK GAMING
 </div>
@@ -1729,19 +1770,12 @@ DARK GAMING
 
 <p id="productType"></p>
 
-
 <div id="packages"></div>
-
-
-<!-- GAMER ID -->
 
 <input
 class="field"
 id="player"
 placeholder="Enter Gamer ID / Username">
-
-
-<!-- PURCHASE PROGRESS -->
 
 <div
 class="progress-box"
@@ -1771,7 +1805,6 @@ id="progressFill">
 
 </div>
 
-
 <button
 class="btn primary"
 style="width:100%"
@@ -1781,7 +1814,6 @@ SEND ORDER →
 
 </button>
 
-
 </div>
 
 </div>
@@ -1791,7 +1823,9 @@ SEND ORDER →
 </div>
 
 
-<!-- REWARD POPUP -->
+<!-- =========================================
+     REWARD POPUP
+========================================= -->
 
 <div
 class="reward-bg"
@@ -1816,62 +1850,29 @@ Congratulations! You reached 5 purchases.
 Choose one FREE reward from the games below.
 </p>
 
-
 <div class="reward-list">
 
 <div class="reward-item">
-
-<span>
-PUBG Mobile
-</span>
-
-<strong>
-325 UC
-</strong>
-
+<span>PUBG Mobile</span>
+<strong>325 UC</strong>
 </div>
-
 
 <div class="reward-item">
-
-<span>
-Roblox
-</span>
-
-<strong>
-500 Robux
-</strong>
-
+<span>Roblox</span>
+<strong>500 Robux</strong>
 </div>
-
 
 <div class="reward-item">
-
-<span>
-Call of Duty Mobile
-</span>
-
-<strong>
-420 CP
-</strong>
-
+<span>Call of Duty Mobile</span>
+<strong>420 CP</strong>
 </div>
-
 
 <div class="reward-item">
-
-<span>
-Free Fire
-</span>
-
-<strong>
-600 Diamonds
-</strong>
-
+<span>Free Fire</span>
+<strong>600 Diamonds</strong>
 </div>
 
 </div>
-
 
 <button
 class="btn primary"
@@ -1887,60 +1888,106 @@ CLAIM REWARD →
 </div>
 
 
+<!-- =========================================
+     THANK YOU POPUP
+========================================= -->
+
+<div
+class="thankyou-bg"
+id="thankyouPopup">
+
+<div class="thankyou-box">
+
+<div class="thankyou-icon">
+🎮
+</div>
+
+<div class="tag">
+DARK GAMING
+</div>
+
+<h2>
+THANK YOU!
+</h2>
+
+<p>
+Thank you for shopping with
+<strong>DARK GAMING</strong>.
+</p>
+
+<div class="order-sent">
+✅ Your order has been prepared and sent to DARK on WhatsApp.
+</div>
+
+<p>
+We appreciate your support.
+We'll get back to you as soon as possible.
+</p>
+
+<button
+class="btn primary"
+style="width:100%"
+onclick="closeThankYou()">
+
+CONTINUE SHOPPING →
+
+</button>
+
+</div>
+
+</div>
+
+
 <script>
 
 /* =========================================
    DARK STORE
-   ========================================= */
+========================================= */
 
 let currentGame="";
 let currentPackage="";
 
 
 /* =========================================
-   TIME-BASED WELCOME POPUP
-   BEFORE 8:00 AM OR AFTER 9:00 PM
-   ========================================= */
+   TIME POPUP
+   BEFORE 8 AM / AFTER 9 PM
+========================================= */
 
 function checkStoreHours(){
 
-const now = new Date();
+const now=new Date();
 
-const hour = now.getHours();
-const minute = now.getMinutes();
+const hour=now.getHours();
+const minute=now.getMinutes();
 
-const currentMinutes =
-(hour * 60) + minute;
+const currentMinutes=
+(hour*60)+minute;
 
-const openingTime = 8 * 60;      // 8:00 AM
-const closingTime = 21 * 60;     // 9:00 PM
+const openingTime=8*60;
+const closingTime=21*60;
 
-const popup =
+const popup=
 document.getElementById("welcomePopup");
 
-const title =
+const title=
 document.getElementById("welcomeTitle");
 
-const message =
+const message=
 document.getElementById("welcomeMessage");
 
-const tag =
+const tag=
 document.getElementById("welcomeTag");
 
 
-/*
-   BEFORE 8:00 AM
-*/
+if(currentMinutes<openingTime){
 
-if(currentMinutes < openingTime){
-
-tag.textContent =
+tag.textContent=
 "DARK STORE • CLOSED";
 
-title.innerHTML =
+title.innerHTML=
 "WE'RE CLOSED<br>RIGHT NOW";
 
-message.textContent =
+message.textContent=
 "Thanks for visiting DARK. Our store opens at 8:00 AM. You can still browse the website, and we'll be ready to help you when we're open.";
 
 popup.classList.add("open");
@@ -1950,19 +1997,15 @@ return;
 }
 
 
-/*
-   AFTER 9:00 PM
-*/
+if(currentMinutes>=closingTime){
 
-if(currentMinutes >= closingTime){
-
-tag.textContent =
+tag.textContent=
 "DARK STORE • CLOSED";
 
-title.innerHTML =
+title.innerHTML=
 "WE'RE CLOSED<br>RIGHT NOW";
 
-message.textContent =
+message.textContent=
 "Thanks for visiting DARK. Our store is closed for tonight. You can still browse the website and place your request. We'll respond when we're back.";
 
 popup.classList.add("open");
@@ -1971,33 +2014,27 @@ return;
 
 }
 
-
-/*
-   BETWEEN 8:00 AM AND 9:00 PM
-   NO AUTOMATIC POPUP
-*/
-
 popup.classList.remove("open");
 
 }
 
 
 /* =========================================
-   CLOSE WELCOME POPUP
-   ========================================= */
+   CLOSE NIGHT POPUP
+========================================= */
 
 function closeWelcome(){
 
-document.getElementById(
-"welcomePopup"
-).classList.remove("open");
+document
+.getElementById("welcomePopup")
+.classList.remove("open");
 
 }
 
 
 /* =========================================
-   CHECK TIME WHEN PAGE LOADS
-   ========================================= */
+   RUN TIME CHECK
+========================================= */
 
 window.addEventListener(
 "load",
@@ -2011,7 +2048,7 @@ checkStoreHours();
 
 /* =========================================
    OPEN PRODUCT
-   ========================================= */
+========================================= */
 
 function openProduct(
 name,
@@ -2036,21 +2073,15 @@ document.getElementById(
 "productImage"
 ).src=image;
 
-
-/* PACKAGE LIST */
-
-let box=document.getElementById(
-"packages"
-);
+let box=
+document.getElementById("packages");
 
 box.innerHTML="";
 
-
 packages.forEach(function(p){
 
-let button=document.createElement(
-"button"
-);
+let button=
+document.createElement("button");
 
 button.className="package";
 
@@ -2061,27 +2092,20 @@ p[0]+
 p[1]+
 "</strong>";
 
-
 button.onclick=function(){
 
 document
 .querySelectorAll(".package")
 .forEach(function(x){
 
-x.classList.remove(
-"selected"
-);
+x.classList.remove("selected");
 
 });
 
-button.classList.add(
-"selected"
-);
+button.classList.add("selected");
 
 currentPackage=
-p[0]+
-" — GYD $"+
-p[1];
+p[0]+" — GYD $"+p[1];
 
 };
 
@@ -2089,29 +2113,26 @@ box.appendChild(button);
 
 });
 
-
-/* RESET PLAYER */
-
 document.getElementById(
 "player"
 ).value="";
 
-
-/* SHOW MODAL */
+document.getElementById(
+"progressBox"
+).style.display="none";
 
 document.getElementById(
 "modal"
 ).classList.add("open");
 
-document.body.style.overflow=
-"hidden";
+document.body.style.overflow="hidden";
 
 }
 
 
 /* =========================================
    CLOSE PRODUCT
-   ========================================= */
+========================================= */
 
 function closeProduct(){
 
@@ -2125,26 +2146,25 @@ document.body.style.overflow="";
 
 
 /* =========================================
-   GET PURCHASE COUNT
-   ========================================= */
+   PURCHASE COUNT
+========================================= */
 
 function getPurchaseCount(player){
 
 let key=
-"DARK_PURCHASES_"+player
-.toLowerCase();
+"DARK_PURCHASES_"+
+player.toLowerCase();
 
 return parseInt(
-localStorage.getItem(key)
-||"0"
+localStorage.getItem(key)||"0"
 );
 
 }
 
 
 /* =========================================
-   SAVE PURCHASE COUNT
-   ========================================= */
+   SAVE COUNT
+========================================= */
 
 function savePurchaseCount(
 player,
@@ -2152,8 +2172,8 @@ count
 ){
 
 let key=
-"DARK_PURCHASES_"+player
-.toLowerCase();
+"DARK_PURCHASES_"+
+player.toLowerCase();
 
 localStorage.setItem(
 key,
@@ -2165,7 +2185,7 @@ count
 
 /* =========================================
    UPDATE PROGRESS
-   ========================================= */
+========================================= */
 
 function updateProgress(player){
 
@@ -2176,16 +2196,14 @@ document.getElementById(
 ).style.display="none";
 
 return;
+
 }
 
 let count=
 getPurchaseCount(player);
 
 let progress=
-Math.min(
-(count/5)*100,
-100
-);
+Math.min((count/5)*100,100);
 
 document.getElementById(
 "progressBox"
@@ -2205,8 +2223,8 @@ progress+"%";
 
 
 /* =========================================
-   PLAYER ID LIVE COUNTER
-   ========================================= */
+   LIVE PLAYER COUNTER
+========================================= */
 
 document.getElementById(
 "player"
@@ -2224,7 +2242,7 @@ this.value.trim()
 
 /* =========================================
    SEND ORDER
-   ========================================= */
+========================================= */
 
 function sendOrder(){
 
@@ -2234,8 +2252,6 @@ document
 .value
 .trim();
 
-
-/* PACKAGE CHECK */
 
 if(!currentPackage){
 
@@ -2248,8 +2264,6 @@ return;
 }
 
 
-/* PLAYER CHECK */
-
 if(!player){
 
 alert(
@@ -2261,32 +2275,19 @@ return;
 }
 
 
-/* CURRENT COUNT */
-
 let oldCount=
 getPurchaseCount(player);
 
-
-/* NEW PURCHASE */
-
 let newCount=
 oldCount+1;
-
-
-/* SAVE */
 
 savePurchaseCount(
 player,
 newCount
 );
 
-
-/* UPDATE PROGRESS */
-
 updateProgress(player);
 
-
-/* REWARD CHECK */
 
 let rewardMessage="";
 
@@ -2301,29 +2302,23 @@ rewardMessage=
 }
 
 
-/* WHATSAPP MESSAGE */
-
 let message=
 "Hi DARK! I want to place an order.%0A%0A"+
 "Game: "+
-encodeURIComponent(
-currentGame
-)+
+encodeURIComponent(currentGame)+
 "%0APackage: "+
-encodeURIComponent(
-currentPackage
-)+
+encodeURIComponent(currentPackage)+
 "%0AGamer ID/Username: "+
-encodeURIComponent(
-player
-)+
+encodeURIComponent(player)+
 "%0ADARK Purchase Count: "+
 newCount+
 " / 5"+
 rewardMessage;
 
 
-/* OPEN WHATSAPP */
+/*
+   SEND WHATSAPP
+*/
 
 window.open(
 "https://wa.me/13436555995?text="+
@@ -2332,42 +2327,75 @@ message,
 );
 
 
-/* SHOW REWARD */
+/*
+   CLOSE PRODUCT WINDOW
+*/
+
+closeProduct();
+
+
+/*
+   AUTOMATIC THANK YOU POPUP
+*/
+
+setTimeout(function(){
+
+document
+.getElementById("thankyouPopup")
+.classList.add("open");
+
+},700);
+
+
+/*
+   SHOW REWARD AFTER THANK YOU
+   IF 5 PURCHASES
+*/
 
 if(newCount>=5){
 
-setTimeout(
-function(){
+setTimeout(function(){
 
-document.getElementById(
-"rewardPopup"
-).classList.add("open");
+document
+.getElementById("rewardPopup")
+.classList.add("open");
 
-},
-600
-);
+},5000);
 
 }
+
+}
+
+
+/* =========================================
+   CLOSE THANK YOU
+========================================= */
+
+function closeThankYou(){
+
+document
+.getElementById("thankyouPopup")
+.classList.remove("open");
 
 }
 
 
 /* =========================================
    CLOSE REWARD
-   ========================================= */
+========================================= */
 
 function closeReward(){
 
-document.getElementById(
-"rewardPopup"
-).classList.remove("open");
+document
+.getElementById("rewardPopup")
+.classList.remove("open");
 
 }
 
 
 /* =========================================
-   CLOSE PRODUCT BY CLICKING OUTSIDE
-   ========================================= */
+   CLICK OUTSIDE PRODUCT
+========================================= */
 
 document.getElementById(
 "modal"
@@ -2383,8 +2411,8 @@ closeProduct();
 
 
 /* =========================================
-   CLOSE REWARD BY CLICKING OUTSIDE
-   ========================================= */
+   CLICK OUTSIDE REWARD
+========================================= */
 
 document.getElementById(
 "rewardPopup"
@@ -2393,6 +2421,23 @@ document.getElementById(
 if(e.target===this){
 
 closeReward();
+
+}
+
+};
+
+
+/* =========================================
+   CLICK OUTSIDE THANK YOU
+========================================= */
+
+document.getElementById(
+"thankyouPopup"
+).onclick=function(e){
+
+if(e.target===this){
+
+closeThankYou();
 
 }
 
