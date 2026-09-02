@@ -83,7 +83,8 @@ color:inherit;
 }
 
 button,
-input{
+input,
+textarea{
 font:inherit;
 }
 
@@ -461,7 +462,6 @@ color:#b9a9a9;
 
 /* =========================================================
    COMING SOON
-   DIRECTLY UNDER GAMES
 ========================================================= */
 
 .coming-soon{
@@ -499,11 +499,6 @@ repeat(4,1fr);
 
 gap:15px;
 }
-
-
-/* =========================================================
-   COMING SOON SHAKING
-========================================================= */
 
 .coming-card{
 height:370px;
@@ -1546,7 +1541,6 @@ height:340px;
 
 /* =========================================================
    SMALL PHONE
-   STILL 2 COLUMN GAMING LAYOUT
 ========================================================= */
 
 @media(max-width:700px){
@@ -1863,7 +1857,7 @@ DARK STORE
 <p id="welcomeMessage">
 
 Level up your gaming experience.
-Get Robux, Diamonds, CP and UC
+Get Robux, Diamonds, TikTok Coins, CP and UC
 quickly and easily.
 
 </p>
@@ -2013,6 +2007,40 @@ and start your order.
 <div class="games">
 
 
+<!-- TIKTOK -->
+
+<div
+class="game"
+onclick="openProduct(
+'TikTok',
+'Coins',
+'images/c74bd087-6e21-4eb1-96b0-1618ce27f454.jpeg',
+[
+['70 Coins','300'],
+['350 Coins','1,200'],
+['700 Coins','2,100'],
+['1,400 Coins','4,100'],
+['3,500 Coins','10,400'],
+['7,000 Coins','21,000']
+])">
+
+<img
+src="images/c74bd087-6e21-4eb1-96b0-1618ce27f454.jpeg"
+alt="TikTok">
+
+<div class="game-info">
+
+<small>TIKTOK</small>
+
+<h3>Coins</h3>
+
+<p>Tap to view packages</p>
+
+</div>
+
+</div>
+
+
 <!-- ROBLOX -->
 
 <div
@@ -2158,7 +2186,6 @@ alt="PUBG Mobile">
 
 <!-- =====================================================
      COMING SOON
-     NOW DIRECTLY UNDER THE GAMES
 ===================================================== -->
 
 <section
@@ -2354,7 +2381,7 @@ SHOP NOW
 
 <p>
 
-Buy from DARK five times using the same Gamer ID
+Buy from DARK five times using the same ID or Account
 and unlock a free gaming top-up reward.
 
 </p>
@@ -2496,7 +2523,7 @@ How It Works
 
 <div class="line">
 <span>01</span>
-<strong>Choose game</strong>
+<strong>Choose product</strong>
 </div>
 
 <div class="line">
@@ -2506,7 +2533,7 @@ How It Works
 
 <div class="line">
 <span>03</span>
-<strong>Enter Gamer ID</strong>
+<strong>Enter required info</strong>
 </div>
 
 <div class="line">
@@ -2657,13 +2684,15 @@ id="productType">
 </div>
 
 
-<!-- GAMER ID -->
+<!-- IDENTIFIER / LOGIN FIELD -->
 
-<input
+<textarea
 class="field"
 id="player"
+rows="2"
 placeholder="Enter Gamer ID / Username"
-autocomplete="off">
+autocomplete="off"
+style="resize:none;"></textarea>
 
 
 <!-- TRANSACTION ID -->
@@ -2769,6 +2798,18 @@ Choose one FREE reward from the games below.
 <div class="reward-item">
 
 <span>
+TikTok Coins
+</span>
+
+<strong>
+70 Coins
+</strong>
+
+</div>
+
+<div class="reward-item">
+
+<span>
 PUBG Mobile
 </span>
 
@@ -2786,18 +2827,6 @@ Roblox
 
 <strong>
 500 Robux
-</strong>
-
-</div>
-
-<div class="reward-item">
-
-<span>
-Call of Duty Mobile
-</span>
-
-<strong>
-420 CP
 </strong>
 
 </div>
@@ -3013,6 +3042,14 @@ document.getElementById(
 "productImage"
 ).src=image;
 
+const playerField = document.getElementById("player");
+
+if(name === "TikTok") {
+    playerField.placeholder = "Enter Login Details (Username/Email & Password)";
+} else {
+    playerField.placeholder = "Enter Gamer ID / Username";
+}
+
 const box=
 document.getElementById("packages");
 
@@ -3207,13 +3244,15 @@ return;
 }
 
 
-/* GAMER ID */
+/* GAMER ID / LOGIN */
 
 if(!player){
 
-alert(
-"Please enter your Gamer ID or Username."
-);
+if(currentGame === "TikTok") {
+    alert("Please enter your TikTok login details.");
+} else {
+    alert("Please enter your Gamer ID or Username.");
+}
 
 return;
 
@@ -3257,13 +3296,15 @@ if(newCount>=5){
 
 rewardMessage=
 "%0A%0A🎉 CONGRATULATIONS! "+
-"This Gamer ID has reached 5 purchases. "+
+"This account has reached 5 purchases. "+
 "Customer qualifies for a FREE TOP-UP reward.";
 
 }
 
 
 /* WHATSAPP MESSAGE */
+
+const identifierLabel = (currentGame === "TikTok") ? "Login Details" : "Gamer ID/Username";
 
 const message=
 "Hi DARK! I want to place an order.%0A%0A"+
@@ -3273,7 +3314,7 @@ encodeURIComponent(currentGame)+
 "Package: "+
 encodeURIComponent(currentPackage)+
 "%0A"+
-"Gamer ID/Username: "+
+identifierLabel+": "+
 encodeURIComponent(player)+
 "%0A"+
 "MMG Transaction ID: "+
@@ -3369,7 +3410,7 @@ window.location.href=url;
 
 /* =========================================================
    CLOSE THANK YOU
-========================================================= */
+===================================================== */
 
 function closeThankYou(){
 
@@ -3382,7 +3423,7 @@ document
 
 /* =========================================================
    CLOSE REWARD
-========================================================= */
+===================================================== */
 
 function closeReward(){
 
@@ -3395,7 +3436,7 @@ document
 
 /* =========================================================
    OUTSIDE MODAL
-========================================================= */
+===================================================== */
 
 document
 .getElementById("modal")
@@ -3412,7 +3453,7 @@ closeProduct();
 
 /* =========================================================
    OUTSIDE REWARD
-========================================================= */
+===================================================== */
 
 document
 .getElementById("rewardPopup")
@@ -3429,7 +3470,7 @@ closeReward();
 
 /* =========================================================
    OUTSIDE THANK YOU
-========================================================= */
+===================================================== */
 
 document
 .getElementById("thankyouPopup")
@@ -3447,3 +3488,4 @@ closeThankYou();
 
 </body>
 </html>
+
